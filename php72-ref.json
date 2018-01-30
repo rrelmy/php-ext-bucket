@@ -1,0 +1,32 @@
+{
+    "homepage": "https://pecl.php.net/package/ref",
+    "version": "0.5.0",
+    "architecture": {
+        "64bit": {
+            "url": "http://windows.php.net/downloads/pecl/releases/ref/0.5.0/php_ref-0.5.0-7.2-ts-vc15-x64.zip",
+            "hash": "d67db20eb5a3db12b9495e8e4e1118ad9877c65bd52b9cb483785356e102638b"
+        },
+        "32bit": {
+            "url": "http://windows.php.net/downloads/pecl/releases/ref/0.5.0/php_ref-0.5.0-7.2-ts-vc15-x86.zip",
+            "hash": "ec071ac3624cf1606c9e885d90e532612756092869b86dc37750e4d0b61a3a48"
+        }
+    },
+    "depends": [
+        "php"
+    ],
+    "post_install": "$phpconfd = \"$persist_dir\\..\\php\\cli\\conf.d\"; if((test-path $phpconfd)) { echo \"Enabling extension $(Convert-Path $phpconfd)\\ref.ini\"; echo \"extension=$dir\\php_ref.dll\" | sc \"$phpconfd\\ref.ini\"; echo \"Remove-Item '$(Convert-Path $phpconfd)\\ref.ini'\" | sc \"$dir\\uninstall.ps1\" } else { write-host -f yellow \"PHP was not installed through scoop, you have to activate php_ref.dll manually!\" }",
+    "checkver": "ref/([\\d.]+)/windows",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "http://windows.php.net/downloads/pecl/releases/ref/$version/php_ref-$version-7.2-ts-vc15-x64.zip"
+            },
+            "32bit": {
+                "url": "http://windows.php.net/downloads/pecl/releases/ref/$version/php_ref-$version-7.2-ts-vc15-x86.zip"
+            }
+        }
+    },
+    "uninstaller": {
+        "file": "uninstall.ps1"
+    }
+}

@@ -1,0 +1,32 @@
+{
+    "homepage": "https://pecl.php.net/package/yaml",
+    "version": "2.0.2",
+    "architecture": {
+        "64bit": {
+            "url": "http://windows.php.net/downloads/pecl/releases/yaml/2.0.2/php_yaml-2.0.2-7.2-ts-vc15-x64.zip",
+            "hash": "0289ea535b469dee33bf4949cc091e3fb8785d9373077482a181666aa73d5da9"
+        },
+        "32bit": {
+            "url": "http://windows.php.net/downloads/pecl/releases/yaml/2.0.2/php_yaml-2.0.2-7.2-ts-vc15-x86.zip",
+            "hash": "db5ce29a9505c40302d4fc6dba64d30ecf4fa791fc05ae4deb861d7c1a3d217b"
+        }
+    },
+    "depends": [
+        "php"
+    ],
+    "post_install": "$phpconfd = \"$persist_dir\\..\\php\\cli\\conf.d\"; if((test-path $phpconfd)) { echo \"Enabling extension $(Convert-Path $phpconfd)\\yaml.ini\"; echo \"extension=$dir\\php_yaml.dll\" | sc \"$phpconfd\\yaml.ini\"; echo \"Remove-Item '$(Convert-Path $phpconfd)\\yaml.ini'\" | sc \"$dir\\uninstall.ps1\" } else { write-host -f yellow \"PHP was not installed through scoop, you have to activate php_yaml.dll manually!\" }",
+    "checkver": "yaml/([\\d.]+)/windows",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "http://windows.php.net/downloads/pecl/releases/yaml/$version/php_yaml-$version-7.2-ts-vc15-x64.zip"
+            },
+            "32bit": {
+                "url": "http://windows.php.net/downloads/pecl/releases/yaml/$version/php_yaml-$version-7.2-ts-vc15-x86.zip"
+            }
+        }
+    },
+    "uninstaller": {
+        "file": "uninstall.ps1"
+    }
+}

@@ -1,0 +1,32 @@
+{
+    "homepage": "https://pecl.php.net/package/event",
+    "version": "2.3.0",
+    "architecture": {
+        "64bit": {
+            "url": "http://windows.php.net/downloads/pecl/releases/event/2.3.0/php_event-2.3.0-7.2-ts-vc15-x64.zip",
+            "hash": "6bbd80f70c6c2831abf9ee1c56fe4e90b2957232c60a668a25ef980a8915857e"
+        },
+        "32bit": {
+            "url": "http://windows.php.net/downloads/pecl/releases/event/2.3.0/php_event-2.3.0-7.2-ts-vc15-x86.zip",
+            "hash": "06a49c2d23b556468d0c78e9cf3ba9653aef7b1e4426038408afda7cf5401901"
+        }
+    },
+    "depends": [
+        "php"
+    ],
+    "post_install": "$phpconfd = \"$persist_dir\\..\\php\\cli\\conf.d\"; if((test-path $phpconfd)) { echo \"Enabling extension $(Convert-Path $phpconfd)\\event.ini\"; echo \"extension=$dir\\php_event.dll\" | sc \"$phpconfd\\event.ini\"; echo \"Remove-Item '$(Convert-Path $phpconfd)\\event.ini'\" | sc \"$dir\\uninstall.ps1\" } else { write-host -f yellow \"PHP was not installed through scoop, you have to activate php_event.dll manually!\" }",
+    "checkver": "event/([\\d.]+)/windows",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "http://windows.php.net/downloads/pecl/releases/event/$version/php_event-$version-7.2-ts-vc15-x64.zip"
+            },
+            "32bit": {
+                "url": "http://windows.php.net/downloads/pecl/releases/event/$version/php_event-$version-7.2-ts-vc15-x86.zip"
+            }
+        }
+    },
+    "uninstaller": {
+        "file": "uninstall.ps1"
+    }
+}

@@ -1,0 +1,32 @@
+{
+    "homepage": "https://pecl.php.net/package/opencensus",
+    "version": "0.1.2",
+    "architecture": {
+        "64bit": {
+            "url": "http://windows.php.net/downloads/pecl/releases/opencensus/0.1.2/php_opencensus-0.1.2-7.2-ts-vc15-x64.zip",
+            "hash": "21f36f5102c238ddcca60030d2b688ff32e8eca0430f9f9e34705085f83ca512"
+        },
+        "32bit": {
+            "url": "http://windows.php.net/downloads/pecl/releases/opencensus/0.1.2/php_opencensus-0.1.2-7.2-ts-vc15-x86.zip",
+            "hash": "d245cbf1f02199b8805caca977106ab2edec314eebc323a294a35dc41b20484e"
+        }
+    },
+    "depends": [
+        "php"
+    ],
+    "post_install": "$phpconfd = \"$persist_dir\\..\\php\\cli\\conf.d\"; if((test-path $phpconfd)) { echo \"Enabling extension $(Convert-Path $phpconfd)\\opencensus.ini\"; echo \"extension=$dir\\php_opencensus.dll\" | sc \"$phpconfd\\opencensus.ini\"; echo \"Remove-Item '$(Convert-Path $phpconfd)\\opencensus.ini'\" | sc \"$dir\\uninstall.ps1\" } else { write-host -f yellow \"PHP was not installed through scoop, you have to activate php_opencensus.dll manually!\" }",
+    "checkver": "opencensus/([\\d.]+)/windows",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "http://windows.php.net/downloads/pecl/releases/opencensus/$version/php_opencensus-$version-7.2-ts-vc15-x64.zip"
+            },
+            "32bit": {
+                "url": "http://windows.php.net/downloads/pecl/releases/opencensus/$version/php_opencensus-$version-7.2-ts-vc15-x86.zip"
+            }
+        }
+    },
+    "uninstaller": {
+        "file": "uninstall.ps1"
+    }
+}

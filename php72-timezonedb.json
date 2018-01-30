@@ -1,0 +1,32 @@
+{
+    "homepage": "https://pecl.php.net/package/timezonedb",
+    "version": "2018.3",
+    "architecture": {
+        "64bit": {
+            "url": "http://windows.php.net/downloads/pecl/releases/timezonedb/2018.3/php_timezonedb-2018.3-7.2-ts-vc15-x64.zip",
+            "hash": "6a7040d33c35681fd20d69ef69aa9415808043bb834a9ba41a97804624f683fb"
+        },
+        "32bit": {
+            "url": "http://windows.php.net/downloads/pecl/releases/timezonedb/2018.3/php_timezonedb-2018.3-7.2-ts-vc15-x86.zip",
+            "hash": "26a5ed767999612b085f89524d6253f2a7ef08e157d393275885a6457b0b942c"
+        }
+    },
+    "depends": [
+        "php"
+    ],
+    "post_install": "$phpconfd = \"$persist_dir\\..\\php\\cli\\conf.d\"; if((test-path $phpconfd)) { echo \"Enabling extension $(Convert-Path $phpconfd)\\timezonedb.ini\"; echo \"extension=$dir\\php_timezonedb.dll\" | sc \"$phpconfd\\timezonedb.ini\"; echo \"Remove-Item '$(Convert-Path $phpconfd)\\timezonedb.ini'\" | sc \"$dir\\uninstall.ps1\" } else { write-host -f yellow \"PHP was not installed through scoop, you have to activate php_timezonedb.dll manually!\" }",
+    "checkver": "timezonedb/([\\d.]+)/windows",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "http://windows.php.net/downloads/pecl/releases/timezonedb/$version/php_timezonedb-$version-7.2-ts-vc15-x64.zip"
+            },
+            "32bit": {
+                "url": "http://windows.php.net/downloads/pecl/releases/timezonedb/$version/php_timezonedb-$version-7.2-ts-vc15-x86.zip"
+            }
+        }
+    },
+    "uninstaller": {
+        "file": "uninstall.ps1"
+    }
+}

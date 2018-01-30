@@ -1,0 +1,32 @@
+{
+    "homepage": "https://pecl.php.net/package/lzf",
+    "version": "1.6.6",
+    "architecture": {
+        "64bit": {
+            "url": "http://windows.php.net/downloads/pecl/releases/lzf/1.6.6/php_lzf-1.6.6-7.2-ts-vc15-x64.zip",
+            "hash": "772a03a513676a1b488c7c4ee2eb5b502738bc52e872923ddfe9b7569883d536"
+        },
+        "32bit": {
+            "url": "http://windows.php.net/downloads/pecl/releases/lzf/1.6.6/php_lzf-1.6.6-7.2-ts-vc15-x86.zip",
+            "hash": "39e4ea8870fb056acf93885c6c5a2ca5a677fb38eaa139f9f3cc11429888d62e"
+        }
+    },
+    "depends": [
+        "php"
+    ],
+    "post_install": "$phpconfd = \"$persist_dir\\..\\php\\cli\\conf.d\"; if((test-path $phpconfd)) { echo \"Enabling extension $(Convert-Path $phpconfd)\\lzf.ini\"; echo \"extension=$dir\\php_lzf.dll\" | sc \"$phpconfd\\lzf.ini\"; echo \"Remove-Item '$(Convert-Path $phpconfd)\\lzf.ini'\" | sc \"$dir\\uninstall.ps1\" } else { write-host -f yellow \"PHP was not installed through scoop, you have to activate php_lzf.dll manually!\" }",
+    "checkver": "lzf/([\\d.]+)/windows",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "http://windows.php.net/downloads/pecl/releases/lzf/$version/php_lzf-$version-7.2-ts-vc15-x64.zip"
+            },
+            "32bit": {
+                "url": "http://windows.php.net/downloads/pecl/releases/lzf/$version/php_lzf-$version-7.2-ts-vc15-x86.zip"
+            }
+        }
+    },
+    "uninstaller": {
+        "file": "uninstall.ps1"
+    }
+}

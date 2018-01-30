@@ -1,0 +1,32 @@
+{
+    "homepage": "https://pecl.php.net/package/weakref",
+    "version": "0.3.3",
+    "architecture": {
+        "64bit": {
+            "url": "http://windows.php.net/downloads/pecl/releases/weakref/0.3.3/php_weakref-0.3.3-7.2-ts-vc15-x64.zip",
+            "hash": "8d0acf7168d1e16ef89dc6e5898458c7eeb2cb800c851141f3505e7c70b495c7"
+        },
+        "32bit": {
+            "url": "http://windows.php.net/downloads/pecl/releases/weakref/0.3.3/php_weakref-0.3.3-7.2-ts-vc15-x86.zip",
+            "hash": "9054677d7695c883f3bcd3e59c71eee3ca99317a4412649b147305a39c988816"
+        }
+    },
+    "depends": [
+        "php"
+    ],
+    "post_install": "$phpconfd = \"$persist_dir\\..\\php\\cli\\conf.d\"; if((test-path $phpconfd)) { echo \"Enabling extension $(Convert-Path $phpconfd)\\weakref.ini\"; echo \"extension=$dir\\php_weakref.dll\" | sc \"$phpconfd\\weakref.ini\"; echo \"Remove-Item '$(Convert-Path $phpconfd)\\weakref.ini'\" | sc \"$dir\\uninstall.ps1\" } else { write-host -f yellow \"PHP was not installed through scoop, you have to activate php_weakref.dll manually!\" }",
+    "checkver": "weakref/([\\d.]+)/windows",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "http://windows.php.net/downloads/pecl/releases/weakref/$version/php_weakref-$version-7.2-ts-vc15-x64.zip"
+            },
+            "32bit": {
+                "url": "http://windows.php.net/downloads/pecl/releases/weakref/$version/php_weakref-$version-7.2-ts-vc15-x86.zip"
+            }
+        }
+    },
+    "uninstaller": {
+        "file": "uninstall.ps1"
+    }
+}

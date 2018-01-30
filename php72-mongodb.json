@@ -1,0 +1,32 @@
+{
+    "homepage": "https://pecl.php.net/package/mongodb",
+    "version": "1.3.4",
+    "architecture": {
+        "64bit": {
+            "url": "http://windows.php.net/downloads/pecl/releases/mongodb/1.3.4/php_mongodb-1.3.4-7.2-ts-vc15-x64.zip",
+            "hash": "53ee8e36ff43712003bd92b684e65478017189e23cccd972d10e5d7a4244684a"
+        },
+        "32bit": {
+            "url": "http://windows.php.net/downloads/pecl/releases/mongodb/1.3.4/php_mongodb-1.3.4-7.2-ts-vc15-x86.zip",
+            "hash": "b3c567d62156017799903063a5044ac577d7c950dbc66d23edd7d3dd734cd5ea"
+        }
+    },
+    "depends": [
+        "php"
+    ],
+    "post_install": "$phpconfd = \"$persist_dir\\..\\php\\cli\\conf.d\"; if((test-path $phpconfd)) { echo \"Enabling extension $(Convert-Path $phpconfd)\\mongodb.ini\"; echo \"extension=$dir\\php_mongodb.dll\" | sc \"$phpconfd\\mongodb.ini\"; echo \"Remove-Item '$(Convert-Path $phpconfd)\\mongodb.ini'\" | sc \"$dir\\uninstall.ps1\" } else { write-host -f yellow \"PHP was not installed through scoop, you have to activate php_mongodb.dll manually!\" }",
+    "checkver": "mongodb/([\\d.]+)/windows",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "http://windows.php.net/downloads/pecl/releases/mongodb/$version/php_mongodb-$version-7.2-ts-vc15-x64.zip"
+            },
+            "32bit": {
+                "url": "http://windows.php.net/downloads/pecl/releases/mongodb/$version/php_mongodb-$version-7.2-ts-vc15-x86.zip"
+            }
+        }
+    },
+    "uninstaller": {
+        "file": "uninstall.ps1"
+    }
+}

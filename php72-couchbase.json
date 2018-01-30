@@ -1,0 +1,32 @@
+{
+    "homepage": "https://pecl.php.net/package/couchbase",
+    "version": "2.4.3",
+    "architecture": {
+        "64bit": {
+            "url": "http://windows.php.net/downloads/pecl/releases/couchbase/2.4.3/php_couchbase-2.4.3-7.2-ts-vc15-x64.zip",
+            "hash": "fd9be483ae8ff9c6e8ef10398c7726b016a18ad3c3766aeadbd39f4634d7f793"
+        },
+        "32bit": {
+            "url": "http://windows.php.net/downloads/pecl/releases/couchbase/2.4.3/php_couchbase-2.4.3-7.2-ts-vc15-x86.zip",
+            "hash": "608679afcdf77c8618b8c4b56fabff77621dac8f3f7fba5f65538b2809d3a2ad"
+        }
+    },
+    "depends": [
+        "php"
+    ],
+    "post_install": "$phpconfd = \"$persist_dir\\..\\php\\cli\\conf.d\"; if((test-path $phpconfd)) { echo \"Enabling extension $(Convert-Path $phpconfd)\\couchbase.ini\"; echo \"extension=$dir\\php_couchbase.dll\" | sc \"$phpconfd\\couchbase.ini\"; echo \"Remove-Item '$(Convert-Path $phpconfd)\\couchbase.ini'\" | sc \"$dir\\uninstall.ps1\" } else { write-host -f yellow \"PHP was not installed through scoop, you have to activate php_couchbase.dll manually!\" }",
+    "checkver": "couchbase/([\\d.]+)/windows",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "http://windows.php.net/downloads/pecl/releases/couchbase/$version/php_couchbase-$version-7.2-ts-vc15-x64.zip"
+            },
+            "32bit": {
+                "url": "http://windows.php.net/downloads/pecl/releases/couchbase/$version/php_couchbase-$version-7.2-ts-vc15-x86.zip"
+            }
+        }
+    },
+    "uninstaller": {
+        "file": "uninstall.ps1"
+    }
+}

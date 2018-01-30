@@ -1,0 +1,32 @@
+{
+    "homepage": "https://pecl.php.net/package/fann",
+    "version": "1.1.1",
+    "architecture": {
+        "64bit": {
+            "url": "http://windows.php.net/downloads/pecl/releases/fann/1.1.1/php_fann-1.1.1-7.2-ts-vc15-x64.zip",
+            "hash": "95538f28d9994cfd475a83110a740d5c02e5d224d48967e3026556d7a9fbf648"
+        },
+        "32bit": {
+            "url": "http://windows.php.net/downloads/pecl/releases/fann/1.1.1/php_fann-1.1.1-7.2-ts-vc15-x86.zip",
+            "hash": "134ce2b447367062f47cdb377bd32f39a9d05b86f5d31940602a284d5a3567fc"
+        }
+    },
+    "depends": [
+        "php"
+    ],
+    "post_install": "$phpconfd = \"$persist_dir\\..\\php\\cli\\conf.d\"; if((test-path $phpconfd)) { echo \"Enabling extension $(Convert-Path $phpconfd)\\fann.ini\"; echo \"extension=$dir\\php_fann.dll\" | sc \"$phpconfd\\fann.ini\"; echo \"Remove-Item '$(Convert-Path $phpconfd)\\fann.ini'\" | sc \"$dir\\uninstall.ps1\" } else { write-host -f yellow \"PHP was not installed through scoop, you have to activate php_fann.dll manually!\" }",
+    "checkver": "fann/([\\d.]+)/windows",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "http://windows.php.net/downloads/pecl/releases/fann/$version/php_fann-$version-7.2-ts-vc15-x64.zip"
+            },
+            "32bit": {
+                "url": "http://windows.php.net/downloads/pecl/releases/fann/$version/php_fann-$version-7.2-ts-vc15-x86.zip"
+            }
+        }
+    },
+    "uninstaller": {
+        "file": "uninstall.ps1"
+    }
+}

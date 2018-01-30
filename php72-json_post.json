@@ -1,0 +1,32 @@
+{
+    "homepage": "https://pecl.php.net/package/json_post",
+    "version": "1.0.1",
+    "architecture": {
+        "64bit": {
+            "url": "http://windows.php.net/downloads/pecl/releases/json_post/1.0.1/php_json_post-1.0.1-7.2-ts-vc15-x64.zip",
+            "hash": "ea84a8f265ca76aeca3d5acc86d84c2aa16c8b311412069bcd167d0006fbb0e4"
+        },
+        "32bit": {
+            "url": "http://windows.php.net/downloads/pecl/releases/json_post/1.0.1/php_json_post-1.0.1-7.2-ts-vc15-x86.zip",
+            "hash": "63fa14fab63714c690279df902a7e071f7ac71e77197b52e84b24adb9c585039"
+        }
+    },
+    "depends": [
+        "php"
+    ],
+    "post_install": "$phpconfd = \"$persist_dir\\..\\php\\cli\\conf.d\"; if((test-path $phpconfd)) { echo \"Enabling extension $(Convert-Path $phpconfd)\\json_post.ini\"; echo \"extension=$dir\\php_json_post.dll\" | sc \"$phpconfd\\json_post.ini\"; echo \"Remove-Item '$(Convert-Path $phpconfd)\\json_post.ini'\" | sc \"$dir\\uninstall.ps1\" } else { write-host -f yellow \"PHP was not installed through scoop, you have to activate php_json_post.dll manually!\" }",
+    "checkver": "json_post/([\\d.]+)/windows",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "http://windows.php.net/downloads/pecl/releases/json_post/$version/php_json_post-$version-7.2-ts-vc15-x64.zip"
+            },
+            "32bit": {
+                "url": "http://windows.php.net/downloads/pecl/releases/json_post/$version/php_json_post-$version-7.2-ts-vc15-x86.zip"
+            }
+        }
+    },
+    "uninstaller": {
+        "file": "uninstall.ps1"
+    }
+}
