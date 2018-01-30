@@ -61,7 +61,7 @@ request(statURL, (err, response, body) => {
 
 
 function getDownloadURL(package, version, arc) {
-    return `http://windows.php.net/downloads/pecl/releases/${package}/${version}/php_${package}-${version}-7.1-ts-vc14-x${arc}.zip`
+    return `http://windows.php.net/downloads/pecl/releases/${package}/${version}/php_${package}-${version}-7.2-ts-vc15-x${arc}.zip`
 }
 
 // let uri;
