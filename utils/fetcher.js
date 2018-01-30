@@ -4,7 +4,12 @@ const jsonfile = require('jsonfile');
 const fs = require('fs');
 const cheerio = require('cheerio');
 
+const tempDirectory = './nohash';
 const statURL = 'https://pecl.php.net/package-stats.php';
+
+if (!fs.existsSync(tempDirectory)) {
+    fs.mkdirSync(tempDirectory);
+}
 
 request(statURL, (err, response, body) => {
     if (!body) {
@@ -17,7 +22,7 @@ request(statURL, (err, response, body) => {
     table.each(function () {
         let packageName = $(this).text();
         console.info(packageName);
-        const packageSaveAs = './nohash/php-' + packageName + '.json';
+        const packageSaveAs = tempDirectory + '/php-' + packageName + '.json';
 
         const packageURL = 'https://pecl.php.net/package/' + $(this).text();
         setTimeout(function () {
