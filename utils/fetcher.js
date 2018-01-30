@@ -7,11 +7,16 @@ const cheerio = require('cheerio');
 const statURL = 'https://pecl.php.net/package-stats.php';
 
 request(statURL, (err, response, body) => {
-    if (!body) return;
+    if (!body) {
+        throw Error('Could not load site');
+    }
     const $ = cheerio.load(body);
-    const table = $('#jabba table tr td:first-child');
+    const table = $('table[width="100%"][cellspacing="2"] tr td:first-child');
+    console.info(`Found ${table.length} packages`);
+
     table.each(function () {
         let packageName = $(this).text();
+        console.info(packageName);
         const packageSaveAs = './nohash/php-' + packageName + '.json';
 
         const packageURL = 'https://pecl.php.net/package/' + $(this).text();
