@@ -2,7 +2,7 @@
 [Scoop](http://scoop.sh) Bucket for PHP Extensions
 Just add the bucket
 ```powershell
-scoop bucket add php-bucket https://github.com/nueko/php-ext-bucket
+scoop bucket add php-bucket https://github.com/rrelmy/php-ext-bucket
 ```
 
 #### Related Buckets
