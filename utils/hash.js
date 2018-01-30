@@ -37,7 +37,7 @@ function hashIt(file) {
           manifest.architecture[key]['hash'] = hash;
           console.log('writing hash for ' + name, key, hash);
           jsonfile.writeFile(filePath, manifest, {
-            spaces: 2
+            spaces: 4
           }, err => {
             if (!err) return;
             console.error('cannot write to', filePath);
