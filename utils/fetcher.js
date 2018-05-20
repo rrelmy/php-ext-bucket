@@ -33,7 +33,7 @@ request(statURL, (err, response, body) => {
                 if (!version || !version[1] || !(/[\d.]+/).test(version[1])) {
                     return;
                 }
-                
+
                 packageName = packageName.toLocaleLowerCase();
 
                 const arcs = [64];
@@ -43,7 +43,7 @@ request(statURL, (err, response, body) => {
                             console.log(`canceling ${packageName} x${arc}:', ${response.statusCode}`)
                             return;
                         }
-                        // replace package name 
+                        // replace package name
                         let template = fs.readFileSync('./template').toString();
                         template = template.replace(/__package__/g, packageName);
                         // replace package version
@@ -55,7 +55,7 @@ request(statURL, (err, response, body) => {
                 });
 
             });
-        }, 10000)
+        }, 1000)
     });
 });
 
