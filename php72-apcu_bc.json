@@ -1,14 +1,14 @@
 {
     "homepage": "https://pecl.php.net/package/apcu_bc",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "architecture": {
         "64bit": {
-            "url": "http://windows.php.net/downloads/pecl/releases/apcu_bc/1.0.3/php_apcu_bc-1.0.3-7.2-ts-vc15-x64.zip",
-            "hash": "20270b3d8ace1163d461b1ff36395dfda9b3a134caa334f5e170f7f3c2e5f937"
+            "url": "http://windows.php.net/downloads/pecl/releases/apcu_bc/1.0.4/php_apcu_bc-1.0.4-7.2-ts-vc15-x64.zip",
+            "hash": "8fb3944ec39a2ab10e84abb0a53282524208044e06484e6712c0081ce29d2296"
         },
         "32bit": {
-            "url": "http://windows.php.net/downloads/pecl/releases/apcu_bc/1.0.3/php_apcu_bc-1.0.3-7.2-ts-vc15-x86.zip",
-            "hash": "ddab2851a8cce3b9052079ef392ac80d85326b01ab9f0b405a0af239661d11a4"
+            "url": "http://windows.php.net/downloads/pecl/releases/apcu_bc/1.0.4/php_apcu_bc-1.0.4-7.2-ts-vc15-x86.zip",
+            "hash": "44c4173a93e6e0ce171a0278d4606040e6ea5d93056f8013eeae1bc0bbf2daeb"
         }
     },
     "depends": [

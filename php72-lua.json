@@ -4,11 +4,11 @@
     "architecture": {
         "64bit": {
             "url": "http://windows.php.net/downloads/pecl/releases/lua/2.0.5/php_lua-2.0.5-7.2-ts-vc15-x64.zip",
-            "hash": "42fad9d1cdaca2e58d7323cc649d834e9db33d0d3889b213b343e729f133ecce"
+            "hash": "e27b5cca11ba1b7227cfe842d2f7e88559992a35d0fac66757463432d7cb9aec"
         },
         "32bit": {
             "url": "http://windows.php.net/downloads/pecl/releases/lua/2.0.5/php_lua-2.0.5-7.2-ts-vc15-x86.zip",
-            "hash": "112aab5ca5a6956b30ecdd73c384fb84acb35d5e0c9f5777400fe58af4310887"
+            "hash": "b71e64c1704e0a3223fa35206ebe842f1bdd270d22b45c8db66cedb6af53beba"
         }
     },
     "depends": [

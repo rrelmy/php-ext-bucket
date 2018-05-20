@@ -1,14 +1,14 @@
 {
     "homepage": "https://pecl.php.net/package/trader",
-    "version": "0.4.0",
+    "version": "0.4.1",
     "architecture": {
         "64bit": {
-            "url": "http://windows.php.net/downloads/pecl/releases/trader/0.4.0/php_trader-0.4.0-7.2-ts-vc15-x64.zip",
-            "hash": "1b72d0c50274086992c78c88e634c15fce0637764e30963d0575e1aa4cc91755"
+            "url": "http://windows.php.net/downloads/pecl/releases/trader/0.4.1/php_trader-0.4.1-7.2-ts-vc15-x64.zip",
+            "hash": "1c2b1ebab64fa73d81978374bd9ca9e115901e172c4032fb9058926ebbdf5286"
         },
         "32bit": {
-            "url": "http://windows.php.net/downloads/pecl/releases/trader/0.4.0/php_trader-0.4.0-7.2-ts-vc15-x86.zip",
-            "hash": "0e9dd799a215ecb12eba0f088d014f8b8fa02a1e3b8b08bed563ef1f02af013e"
+            "url": "http://windows.php.net/downloads/pecl/releases/trader/0.4.1/php_trader-0.4.1-7.2-ts-vc15-x86.zip",
+            "hash": "c368c67a77e7c991e10e044dd5a33f9d909e6781aa77ea8e5a767c587b946628"
         }
     },
     "depends": [

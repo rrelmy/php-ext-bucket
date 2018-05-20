@@ -1,14 +1,14 @@
 {
     "homepage": "https://pecl.php.net/package/stackdriver_debugger",
-    "version": "0.1.1",
+    "version": "0.2.0",
     "architecture": {
         "64bit": {
-            "url": "http://windows.php.net/downloads/pecl/releases/stackdriver_debugger/0.1.1/php_stackdriver_debugger-0.1.1-7.2-ts-vc15-x64.zip",
-            "hash": "0b1a7bd3d89eed99a2f401e3e09d67b2ddaa81514e9fde44a842ae5ed597cfc4"
+            "url": "http://windows.php.net/downloads/pecl/releases/stackdriver_debugger/0.2.0/php_stackdriver_debugger-0.2.0-7.2-ts-vc15-x64.zip",
+            "hash": "1d97ec226d52029153cfc764a5b1edf8d25d6431a5d6c6383fe792be311923d5"
         },
         "32bit": {
-            "url": "http://windows.php.net/downloads/pecl/releases/stackdriver_debugger/0.1.1/php_stackdriver_debugger-0.1.1-7.2-ts-vc15-x86.zip",
-            "hash": "f237e25f3dbdf689649682ea5818903ffc5ff886ccc295b5f4824f8f9b68333f"
+            "url": "http://windows.php.net/downloads/pecl/releases/stackdriver_debugger/0.2.0/php_stackdriver_debugger-0.2.0-7.2-ts-vc15-x86.zip",
+            "hash": "757198f103f2f7d8d289631e4dfbf46dd7c9108f096d7550197a6c581551c320"
         }
     },
     "depends": [

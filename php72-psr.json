@@ -1,0 +1,32 @@
+{
+    "homepage": "https://pecl.php.net/package/psr",
+    "version": "0.4.0",
+    "architecture": {
+        "64bit": {
+            "url": "http://windows.php.net/downloads/pecl/releases/psr/0.4.0/php_psr-0.4.0-7.2-ts-vc15-x64.zip",
+            "hash": "354f8f5d86e8bbcc9da6d7b45c9380895c4b7df2ecbf6202633af48ddc5c36fe"
+        },
+        "32bit": {
+            "url": "http://windows.php.net/downloads/pecl/releases/psr/0.4.0/php_psr-0.4.0-7.2-ts-vc15-x86.zip",
+            "hash": "72e90f938b0eed218aa814fc0d14c09b4f41774bee7556efca9ee68178931f67"
+        }
+    },
+    "depends": [
+        "php"
+    ],
+    "post_install": "$phpconfd = \"$persist_dir\\..\\php\\cli\\conf.d\"; if((test-path $phpconfd)) { echo \"Enabling extension $(Convert-Path $phpconfd)\\psr.ini\"; echo \"extension=$dir\\php_psr.dll\" | sc \"$phpconfd\\psr.ini\"; echo \"Remove-Item '$(Convert-Path $phpconfd)\\psr.ini'\" | sc \"$dir\\uninstall.ps1\" } else { write-host -f yellow \"PHP was not installed through scoop, you have to activate php_psr.dll manually!\" }",
+    "checkver": "psr/([\\d.]+)/windows",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "http://windows.php.net/downloads/pecl/releases/psr/$version/php_psr-$version-7.2-ts-vc15-x64.zip"
+            },
+            "32bit": {
+                "url": "http://windows.php.net/downloads/pecl/releases/psr/$version/php_psr-$version-7.2-ts-vc15-x86.zip"
+            }
+        }
+    },
+    "uninstaller": {
+        "file": "uninstall.ps1"
+    }
+}

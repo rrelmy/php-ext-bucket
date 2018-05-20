@@ -1,14 +1,14 @@
 {
     "homepage": "https://pecl.php.net/package/win32service",
-    "version": "0.2.1",
+    "version": "0.3.0",
     "architecture": {
         "64bit": {
-            "url": "http://windows.php.net/downloads/pecl/releases/win32service/0.2.1/php_win32service-0.2.1-7.2-ts-vc15-x64.zip",
-            "hash": "cff1a65627043a8d7856843aa0936d71d7efad9be92ca7281e62aeae02121be9"
+            "url": "http://windows.php.net/downloads/pecl/releases/win32service/0.3.0/php_win32service-0.3.0-7.2-ts-vc15-x64.zip",
+            "hash": "d844d3ecd99d4c0ced6da2191cf4bdf0b00e61e146f5f17b42d8219b61943860"
         },
         "32bit": {
-            "url": "http://windows.php.net/downloads/pecl/releases/win32service/0.2.1/php_win32service-0.2.1-7.2-ts-vc15-x86.zip",
-            "hash": "9f0bf4e728b0e678fdd20d4a76d57ca4b5e224fd5404d649889f5dadc0acce51"
+            "url": "http://windows.php.net/downloads/pecl/releases/win32service/0.3.0/php_win32service-0.3.0-7.2-ts-vc15-x86.zip",
+            "hash": "7dee47a0f3316ffc5082401d66da5e3c096ca4d8104bb0d1cf24adf68024f3e0"
         }
     },
     "depends": [

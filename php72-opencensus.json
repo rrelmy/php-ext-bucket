@@ -1,14 +1,14 @@
 {
     "homepage": "https://pecl.php.net/package/opencensus",
-    "version": "0.1.2",
+    "version": "0.2.2",
     "architecture": {
         "64bit": {
-            "url": "http://windows.php.net/downloads/pecl/releases/opencensus/0.1.2/php_opencensus-0.1.2-7.2-ts-vc15-x64.zip",
-            "hash": "21f36f5102c238ddcca60030d2b688ff32e8eca0430f9f9e34705085f83ca512"
+            "url": "http://windows.php.net/downloads/pecl/releases/opencensus/0.2.2/php_opencensus-0.2.2-7.2-ts-vc15-x64.zip",
+            "hash": "71303c7e0e9ce51ac3b65f308b90d0b8a55a065e863291b3176165ed5b606925"
         },
         "32bit": {
-            "url": "http://windows.php.net/downloads/pecl/releases/opencensus/0.1.2/php_opencensus-0.1.2-7.2-ts-vc15-x86.zip",
-            "hash": "d245cbf1f02199b8805caca977106ab2edec314eebc323a294a35dc41b20484e"
+            "url": "http://windows.php.net/downloads/pecl/releases/opencensus/0.2.2/php_opencensus-0.2.2-7.2-ts-vc15-x86.zip",
+            "hash": "a0749b9e37ac9d7d9aa3f11bd1685ee4121cafaf89bb6713eb4961f73d94037b"
         }
     },
     "depends": [

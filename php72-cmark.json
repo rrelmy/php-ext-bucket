@@ -1,0 +1,32 @@
+{
+    "homepage": "https://pecl.php.net/package/cmark",
+    "version": "1.1.0",
+    "architecture": {
+        "64bit": {
+            "url": "http://windows.php.net/downloads/pecl/releases/cmark/1.1.0/php_cmark-1.1.0-7.2-ts-vc15-x64.zip",
+            "hash": "75949e12931c2a5c66bdedf90c42012f1de75c4a9ec47cf31bdaa62b431a8240"
+        },
+        "32bit": {
+            "url": "http://windows.php.net/downloads/pecl/releases/cmark/1.1.0/php_cmark-1.1.0-7.2-ts-vc15-x86.zip",
+            "hash": "7c9d7b278a6c41b46609e0c0bd2007f21dffa703cb509adebbefff537689efb6"
+        }
+    },
+    "depends": [
+        "php"
+    ],
+    "post_install": "$phpconfd = \"$persist_dir\\..\\php\\cli\\conf.d\"; if((test-path $phpconfd)) { echo \"Enabling extension $(Convert-Path $phpconfd)\\cmark.ini\"; echo \"extension=$dir\\php_cmark.dll\" | sc \"$phpconfd\\cmark.ini\"; echo \"Remove-Item '$(Convert-Path $phpconfd)\\cmark.ini'\" | sc \"$dir\\uninstall.ps1\" } else { write-host -f yellow \"PHP was not installed through scoop, you have to activate php_cmark.dll manually!\" }",
+    "checkver": "cmark/([\\d.]+)/windows",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "http://windows.php.net/downloads/pecl/releases/cmark/$version/php_cmark-$version-7.2-ts-vc15-x64.zip"
+            },
+            "32bit": {
+                "url": "http://windows.php.net/downloads/pecl/releases/cmark/$version/php_cmark-$version-7.2-ts-vc15-x86.zip"
+            }
+        }
+    },
+    "uninstaller": {
+        "file": "uninstall.ps1"
+    }
+}
