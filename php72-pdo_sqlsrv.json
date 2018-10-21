@@ -1,14 +1,14 @@
 {
     "homepage": "https://pecl.php.net/package/pdo_sqlsrv",
-    "version": "5.2.0",
+    "version": "5.3.0",
     "architecture": {
         "64bit": {
-            "url": "http://windows.php.net/downloads/pecl/releases/pdo_sqlsrv/5.2.0/php_pdo_sqlsrv-5.2.0-7.2-ts-vc15-x64.zip",
-            "hash": "56e58e3a67dee591ee3f37c4c6d3128298b7da90a6e7ffd45997028ee80c9bcb"
+            "url": "http://windows.php.net/downloads/pecl/releases/pdo_sqlsrv/5.3.0/php_pdo_sqlsrv-5.3.0-7.2-ts-vc15-x64.zip",
+            "hash": "05e14a879626e7694aa13f7d9980fa0f8f406f69c9311a5f4faf4762ab80ee75"
         },
         "32bit": {
-            "url": "http://windows.php.net/downloads/pecl/releases/pdo_sqlsrv/5.2.0/php_pdo_sqlsrv-5.2.0-7.2-ts-vc15-x86.zip",
-            "hash": "c921493cbfcea9271eef8988860e4c6f2ace7ac9e3297ce0830292a541762860"
+            "url": "http://windows.php.net/downloads/pecl/releases/pdo_sqlsrv/5.3.0/php_pdo_sqlsrv-5.3.0-7.2-ts-vc15-x86.zip",
+            "hash": "a8540867b52dfc3854b7efbc80f7a4d558eef496bb665f567cdbf6a922193427"
         }
     },
     "depends": [

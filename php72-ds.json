@@ -1,14 +1,14 @@
 {
     "homepage": "https://pecl.php.net/package/ds",
-    "version": "1.2.5",
+    "version": "1.2.6",
     "architecture": {
         "64bit": {
-            "url": "http://windows.php.net/downloads/pecl/releases/ds/1.2.5/php_ds-1.2.5-7.2-ts-vc15-x64.zip",
-            "hash": "4d227187f7ba99a6520d3c20da73cdf7b4288aa00e3a108dc6376ca1b57df12b"
+            "url": "http://windows.php.net/downloads/pecl/releases/ds/1.2.6/php_ds-1.2.6-7.2-ts-vc15-x64.zip",
+            "hash": "f886f86610348ecc3fc2a7bdd86433fc746efdb05fdc78444b46c05cb73d5bf3"
         },
         "32bit": {
-            "url": "http://windows.php.net/downloads/pecl/releases/ds/1.2.5/php_ds-1.2.5-7.2-ts-vc15-x86.zip",
-            "hash": "159414f9e125d1962917327a23ffab51a7e9cdedf711ef4bb94ac9c672c9111b"
+            "url": "http://windows.php.net/downloads/pecl/releases/ds/1.2.6/php_ds-1.2.6-7.2-ts-vc15-x86.zip",
+            "hash": "12ff3891cc53cc55aa41c50069f00561c5313be687926ef939d1b1e4d7621c59"
         }
     },
     "depends": [

@@ -1,14 +1,14 @@
 {
     "homepage": "https://pecl.php.net/package/redis",
-    "version": "4.0.2",
+    "version": "4.1.1",
     "architecture": {
         "64bit": {
-            "url": "http://windows.php.net/downloads/pecl/releases/redis/4.0.2/php_redis-4.0.2-7.2-ts-vc15-x64.zip",
-            "hash": "cee2099a7342357e10dc8635e78f6740ac7095341b7c9033c885b166aeff66f3"
+            "url": "http://windows.php.net/downloads/pecl/releases/redis/4.1.1/php_redis-4.1.1-7.2-ts-vc15-x64.zip",
+            "hash": "2c3e3a90520a30a784dcc6fade52d87d3c9f68c4f3446c762264600441cc333d"
         },
         "32bit": {
-            "url": "http://windows.php.net/downloads/pecl/releases/redis/4.0.2/php_redis-4.0.2-7.2-ts-vc15-x86.zip",
-            "hash": "669ff146e6939695c559ece7ab5b8fe69af12a9567f563e02414727b93961b4d"
+            "url": "http://windows.php.net/downloads/pecl/releases/redis/4.1.1/php_redis-4.1.1-7.2-ts-vc15-x86.zip",
+            "hash": "d1fd1608b8ff9ebc7fba2015d85d62501970f5408498aff3832a3dabafcd8350"
         }
     },
     "depends": [

@@ -1,14 +1,14 @@
 {
     "homepage": "https://pecl.php.net/package/sqlsrv",
-    "version": "5.2.0",
+    "version": "5.3.0",
     "architecture": {
         "64bit": {
-            "url": "http://windows.php.net/downloads/pecl/releases/sqlsrv/5.2.0/php_sqlsrv-5.2.0-7.2-ts-vc15-x64.zip",
-            "hash": "be367ab320d8781ebe57d329056a577a828c8207a956a6f32447e05612063ceb"
+            "url": "http://windows.php.net/downloads/pecl/releases/sqlsrv/5.3.0/php_sqlsrv-5.3.0-7.2-ts-vc15-x64.zip",
+            "hash": "0e2f1958f970bb8ce2643e4a1f4837b259669d401c5897e68b19c55124cf0543"
         },
         "32bit": {
-            "url": "http://windows.php.net/downloads/pecl/releases/sqlsrv/5.2.0/php_sqlsrv-5.2.0-7.2-ts-vc15-x86.zip",
-            "hash": "872c693d1272daf819fc3f6923c755a69b10f850da3fe5bbded3f8f8eee762eb"
+            "url": "http://windows.php.net/downloads/pecl/releases/sqlsrv/5.3.0/php_sqlsrv-5.3.0-7.2-ts-vc15-x86.zip",
+            "hash": "c88b39142226eee9ae37780c4d64fe4a4ff5f339150163fbf6cfb1c22f2da9d9"
         }
     },
     "depends": [

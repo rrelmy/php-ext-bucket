@@ -1,0 +1,32 @@
+{
+    "homepage": "https://pecl.php.net/package/xlswriter",
+    "version": "1.2.2",
+    "architecture": {
+        "64bit": {
+            "url": "http://windows.php.net/downloads/pecl/releases/xlswriter/1.2.2/php_xlswriter-1.2.2-7.2-ts-vc15-x64.zip",
+            "hash": "eccba2ea5f0f621f4103e98e1a950e284cae4dfbab9112eaf274e20c9f88954e"
+        },
+        "32bit": {
+            "url": "http://windows.php.net/downloads/pecl/releases/xlswriter/1.2.2/php_xlswriter-1.2.2-7.2-ts-vc15-x86.zip",
+            "hash": "1832bf3e515654eebed964ec03b992249b7640dd6ec8ba38d506bb93e4f65542"
+        }
+    },
+    "depends": [
+        "php"
+    ],
+    "post_install": "$phpconfd = \"$persist_dir\\..\\php\\cli\\conf.d\"; if((test-path $phpconfd)) { echo \"Enabling extension $(Convert-Path $phpconfd)\\xlswriter.ini\"; echo \"extension=$dir\\php_xlswriter.dll\" | sc \"$phpconfd\\xlswriter.ini\"; echo \"Remove-Item '$(Convert-Path $phpconfd)\\xlswriter.ini'\" | sc \"$dir\\uninstall.ps1\" } else { write-host -f yellow \"PHP was not installed through scoop, you have to activate php_xlswriter.dll manually!\" }",
+    "checkver": "xlswriter/([\\d.]+)/windows",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "http://windows.php.net/downloads/pecl/releases/xlswriter/$version/php_xlswriter-$version-7.2-ts-vc15-x64.zip"
+            },
+            "32bit": {
+                "url": "http://windows.php.net/downloads/pecl/releases/xlswriter/$version/php_xlswriter-$version-7.2-ts-vc15-x86.zip"
+            }
+        }
+    },
+    "uninstaller": {
+        "file": "uninstall.ps1"
+    }
+}

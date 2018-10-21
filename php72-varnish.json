@@ -1,14 +1,14 @@
 {
     "homepage": "https://pecl.php.net/package/varnish",
-    "version": "1.2.3",
+    "version": "1.2.4",
     "architecture": {
         "64bit": {
-            "url": "http://windows.php.net/downloads/pecl/releases/varnish/1.2.3/php_varnish-1.2.3-7.2-ts-vc15-x64.zip",
-            "hash": "f6c6cebdd3438227a5d3a23c3d842cf49fb7ca5633ed870020c4caa4f70ec86a"
+            "url": "http://windows.php.net/downloads/pecl/releases/varnish/1.2.4/php_varnish-1.2.4-7.2-ts-vc15-x64.zip",
+            "hash": "ccc6434c4e327f39adf66f3a6997d87e7266d6af4956bd400fc0f40f380185aa"
         },
         "32bit": {
-            "url": "http://windows.php.net/downloads/pecl/releases/varnish/1.2.3/php_varnish-1.2.3-7.2-ts-vc15-x86.zip",
-            "hash": "9f37426b6be234acf456e785c9b7a0093fc2689075b66680aa7923c6610e7195"
+            "url": "http://windows.php.net/downloads/pecl/releases/varnish/1.2.4/php_varnish-1.2.4-7.2-ts-vc15-x86.zip",
+            "hash": "fc08f1def4de044258f835f156aa43315ab16a30c2fae1cd0884b9b01c86ce67"
         }
     },
     "depends": [

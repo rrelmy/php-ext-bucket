@@ -1,14 +1,14 @@
 {
     "homepage": "https://pecl.php.net/package/stomp",
-    "version": "2.0.1",
+    "version": "2.0.2",
     "architecture": {
         "64bit": {
-            "url": "http://windows.php.net/downloads/pecl/releases/stomp/2.0.1/php_stomp-2.0.1-7.2-ts-vc15-x64.zip",
-            "hash": "525f5a55a5690387938af5de9e8190103fb98387186f66d307e2e5e01ac19d44"
+            "url": "http://windows.php.net/downloads/pecl/releases/stomp/2.0.2/php_stomp-2.0.2-7.2-ts-vc15-x64.zip",
+            "hash": "50737e01a917d30b51e74d04ace3786fb38df343546c8aa54f7a3dcd60989a6c"
         },
         "32bit": {
-            "url": "http://windows.php.net/downloads/pecl/releases/stomp/2.0.1/php_stomp-2.0.1-7.2-ts-vc15-x86.zip",
-            "hash": "4e12e6d575b17111e7fbe458ff0ac255b23091ebb7798f6498defc32fa488dff"
+            "url": "http://windows.php.net/downloads/pecl/releases/stomp/2.0.2/php_stomp-2.0.2-7.2-ts-vc15-x86.zip",
+            "hash": "cec67f69836fae56b443225305ac24862260d4cc4748652d38cb93f9e723f78e"
         }
     },
     "depends": [
