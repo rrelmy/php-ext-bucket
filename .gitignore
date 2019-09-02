@@ -1,3 +1,4 @@
 node_modules/
 /utils/nohash/
+/utils/package-lock.json
 .vscode/
