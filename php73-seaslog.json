@@ -1,0 +1,32 @@
+{
+    "homepage": "https://pecl.php.net/package/seaslog",
+    "version": "2.0.2",
+    "architecture": {
+        "64bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/seaslog/2.0.2/php_seaslog-2.0.2-7.3-ts-vc15-x64.zip",
+            "hash": "a3a09d0b9a849c3f9ba87796cb93305d143691ed9abd0384e26bc30a4e5b19d7"
+        },
+        "32bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/seaslog/2.0.2/php_seaslog-2.0.2-7.3-ts-vc15-x86.zip",
+            "hash": "c77798134a118b2dc893b915cd877e0e762847eb18de7da68ac4a30084b87567"
+        }
+    },
+    "depends": [
+        "php"
+    ],
+    "post_install": "$phpconfd = \"$persist_dir\\..\\php\\cli\\conf.d\"; if((test-path $phpconfd)) { echo \"Enabling extension $(Convert-Path $phpconfd)\\seaslog.ini\"; echo \"extension=$dir\\php_seaslog.dll\" | sc \"$phpconfd\\seaslog.ini\"; echo \"Remove-Item '$(Convert-Path $phpconfd)\\seaslog.ini'\" | sc \"$dir\\uninstall.ps1\" } else { write-host -f yellow \"PHP was not installed through scoop, you have to activate php_seaslog.dll manually!\" }",
+    "checkver": "seaslog/([\\d.]+)/windows",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/seaslog/$version/php_seaslog-$version-7.3-ts-vc15-x64.zip"
+            },
+            "32bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/seaslog/$version/php_seaslog-$version-7.3-ts-vc15-x86.zip"
+            }
+        }
+    },
+    "uninstaller": {
+        "file": "uninstall.ps1"
+    }
+}

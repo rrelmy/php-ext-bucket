@@ -1,0 +1,32 @@
+{
+    "homepage": "https://pecl.php.net/package/pcov",
+    "version": "1.0.6",
+    "architecture": {
+        "64bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/pcov/1.0.6/php_pcov-1.0.6-7.3-ts-vc15-x64.zip",
+            "hash": "0b4a0e181c01403c3f3ce4524c7abf468590bef40f3cc4334a42dd257fe9caa4"
+        },
+        "32bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/pcov/1.0.6/php_pcov-1.0.6-7.3-ts-vc15-x86.zip",
+            "hash": "905d277ebb698d2d6c70dcb8d3644175ebfb7cf4da9101c2bd79d9cb948be69d"
+        }
+    },
+    "depends": [
+        "php"
+    ],
+    "post_install": "$phpconfd = \"$persist_dir\\..\\php\\cli\\conf.d\"; if((test-path $phpconfd)) { echo \"Enabling extension $(Convert-Path $phpconfd)\\pcov.ini\"; echo \"extension=$dir\\php_pcov.dll\" | sc \"$phpconfd\\pcov.ini\"; echo \"Remove-Item '$(Convert-Path $phpconfd)\\pcov.ini'\" | sc \"$dir\\uninstall.ps1\" } else { write-host -f yellow \"PHP was not installed through scoop, you have to activate php_pcov.dll manually!\" }",
+    "checkver": "pcov/([\\d.]+)/windows",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/pcov/$version/php_pcov-$version-7.3-ts-vc15-x64.zip"
+            },
+            "32bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/pcov/$version/php_pcov-$version-7.3-ts-vc15-x86.zip"
+            }
+        }
+    },
+    "uninstaller": {
+        "file": "uninstall.ps1"
+    }
+}

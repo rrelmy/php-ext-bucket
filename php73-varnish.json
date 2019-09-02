@@ -1,0 +1,32 @@
+{
+    "homepage": "https://pecl.php.net/package/varnish",
+    "version": "1.2.4",
+    "architecture": {
+        "64bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/varnish/1.2.4/php_varnish-1.2.4-7.3-ts-vc15-x64.zip",
+            "hash": "495e4fbd966be69e344e493f965340ae6b400bc09be35859ee71c661f6f945f6"
+        },
+        "32bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/varnish/1.2.4/php_varnish-1.2.4-7.3-ts-vc15-x86.zip",
+            "hash": "311613af6fc01a75bb3320d7d5e2e2c519276f8b0d091b8808927b9a0d616dfc"
+        }
+    },
+    "depends": [
+        "php"
+    ],
+    "post_install": "$phpconfd = \"$persist_dir\\..\\php\\cli\\conf.d\"; if((test-path $phpconfd)) { echo \"Enabling extension $(Convert-Path $phpconfd)\\varnish.ini\"; echo \"extension=$dir\\php_varnish.dll\" | sc \"$phpconfd\\varnish.ini\"; echo \"Remove-Item '$(Convert-Path $phpconfd)\\varnish.ini'\" | sc \"$dir\\uninstall.ps1\" } else { write-host -f yellow \"PHP was not installed through scoop, you have to activate php_varnish.dll manually!\" }",
+    "checkver": "varnish/([\\d.]+)/windows",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/varnish/$version/php_varnish-$version-7.3-ts-vc15-x64.zip"
+            },
+            "32bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/varnish/$version/php_varnish-$version-7.3-ts-vc15-x86.zip"
+            }
+        }
+    },
+    "uninstaller": {
+        "file": "uninstall.ps1"
+    }
+}

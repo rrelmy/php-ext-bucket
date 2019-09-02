@@ -1,0 +1,32 @@
+{
+    "homepage": "https://pecl.php.net/package/vld",
+    "version": "0.16.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/vld/0.16.0/php_vld-0.16.0-7.3-ts-vc15-x64.zip",
+            "hash": "568c14379d9875897b24c55bcf31fc3947dafe0e754a230b1a70da81f965380a"
+        },
+        "32bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/vld/0.16.0/php_vld-0.16.0-7.3-ts-vc15-x86.zip",
+            "hash": "ed1b3ffc8c27062cfd51d0b050e17a1b0536274d3849cb99ecc55b78e166c36d"
+        }
+    },
+    "depends": [
+        "php"
+    ],
+    "post_install": "$phpconfd = \"$persist_dir\\..\\php\\cli\\conf.d\"; if((test-path $phpconfd)) { echo \"Enabling extension $(Convert-Path $phpconfd)\\vld.ini\"; echo \"extension=$dir\\php_vld.dll\" | sc \"$phpconfd\\vld.ini\"; echo \"Remove-Item '$(Convert-Path $phpconfd)\\vld.ini'\" | sc \"$dir\\uninstall.ps1\" } else { write-host -f yellow \"PHP was not installed through scoop, you have to activate php_vld.dll manually!\" }",
+    "checkver": "vld/([\\d.]+)/windows",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/vld/$version/php_vld-$version-7.3-ts-vc15-x64.zip"
+            },
+            "32bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/vld/$version/php_vld-$version-7.3-ts-vc15-x86.zip"
+            }
+        }
+    },
+    "uninstaller": {
+        "file": "uninstall.ps1"
+    }
+}

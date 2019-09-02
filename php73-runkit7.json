@@ -1,0 +1,32 @@
+{
+    "homepage": "https://pecl.php.net/package/runkit7",
+    "version": "3.0.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/runkit7/3.0.0/php_runkit7-3.0.0-7.3-ts-vc15-x64.zip",
+            "hash": "1a07147b3929b0ebdcf800e9b1857658fb30e7185124c916daca53cd68203f01"
+        },
+        "32bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/runkit7/3.0.0/php_runkit7-3.0.0-7.3-ts-vc15-x86.zip",
+            "hash": "ad99d77abe145d0a12f7f0db6d2ab3bf3c9fc4833b0a0e142b3b7d182d471bb8"
+        }
+    },
+    "depends": [
+        "php"
+    ],
+    "post_install": "$phpconfd = \"$persist_dir\\..\\php\\cli\\conf.d\"; if((test-path $phpconfd)) { echo \"Enabling extension $(Convert-Path $phpconfd)\\runkit7.ini\"; echo \"extension=$dir\\php_runkit7.dll\" | sc \"$phpconfd\\runkit7.ini\"; echo \"Remove-Item '$(Convert-Path $phpconfd)\\runkit7.ini'\" | sc \"$dir\\uninstall.ps1\" } else { write-host -f yellow \"PHP was not installed through scoop, you have to activate php_runkit7.dll manually!\" }",
+    "checkver": "runkit7/([\\d.]+)/windows",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/runkit7/$version/php_runkit7-$version-7.3-ts-vc15-x64.zip"
+            },
+            "32bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/runkit7/$version/php_runkit7-$version-7.3-ts-vc15-x86.zip"
+            }
+        }
+    },
+    "uninstaller": {
+        "file": "uninstall.ps1"
+    }
+}

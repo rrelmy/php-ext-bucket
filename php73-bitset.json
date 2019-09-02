@@ -1,0 +1,32 @@
+{
+    "homepage": "https://pecl.php.net/package/bitset",
+    "version": "3.0.1",
+    "architecture": {
+        "64bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/bitset/3.0.1/php_bitset-3.0.1-7.3-ts-vc15-x64.zip",
+            "hash": "5a7cba437482fc96b4a77744242fa2b238bb49cca4e9ec7b74cad779cf9b2c8a"
+        },
+        "32bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/bitset/3.0.1/php_bitset-3.0.1-7.3-ts-vc15-x86.zip",
+            "hash": "a6fb8f63f0182ba2dbe1694065c4bce9e44660b667283b0f90e29d58df14e3f4"
+        }
+    },
+    "depends": [
+        "php"
+    ],
+    "post_install": "$phpconfd = \"$persist_dir\\..\\php\\cli\\conf.d\"; if((test-path $phpconfd)) { echo \"Enabling extension $(Convert-Path $phpconfd)\\bitset.ini\"; echo \"extension=$dir\\php_bitset.dll\" | sc \"$phpconfd\\bitset.ini\"; echo \"Remove-Item '$(Convert-Path $phpconfd)\\bitset.ini'\" | sc \"$dir\\uninstall.ps1\" } else { write-host -f yellow \"PHP was not installed through scoop, you have to activate php_bitset.dll manually!\" }",
+    "checkver": "bitset/([\\d.]+)/windows",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/bitset/$version/php_bitset-$version-7.3-ts-vc15-x64.zip"
+            },
+            "32bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/bitset/$version/php_bitset-$version-7.3-ts-vc15-x86.zip"
+            }
+        }
+    },
+    "uninstaller": {
+        "file": "uninstall.ps1"
+    }
+}

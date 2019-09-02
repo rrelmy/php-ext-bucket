@@ -1,0 +1,32 @@
+{
+    "homepage": "https://pecl.php.net/package/sync",
+    "version": "1.1.1",
+    "architecture": {
+        "64bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/sync/1.1.1/php_sync-1.1.1-7.3-ts-vc15-x64.zip",
+            "hash": "c3e461c187726e2cb94186dea5cb3dae93ee2fa4bfddbbe458b84b1fa1ec60aa"
+        },
+        "32bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/sync/1.1.1/php_sync-1.1.1-7.3-ts-vc15-x86.zip",
+            "hash": "67ca14eb6c60b4a3ada1a61bfaef4ee08af2fac03f5e0e2e64b030722cfe73ce"
+        }
+    },
+    "depends": [
+        "php"
+    ],
+    "post_install": "$phpconfd = \"$persist_dir\\..\\php\\cli\\conf.d\"; if((test-path $phpconfd)) { echo \"Enabling extension $(Convert-Path $phpconfd)\\sync.ini\"; echo \"extension=$dir\\php_sync.dll\" | sc \"$phpconfd\\sync.ini\"; echo \"Remove-Item '$(Convert-Path $phpconfd)\\sync.ini'\" | sc \"$dir\\uninstall.ps1\" } else { write-host -f yellow \"PHP was not installed through scoop, you have to activate php_sync.dll manually!\" }",
+    "checkver": "sync/([\\d.]+)/windows",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/sync/$version/php_sync-$version-7.3-ts-vc15-x64.zip"
+            },
+            "32bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/sync/$version/php_sync-$version-7.3-ts-vc15-x86.zip"
+            }
+        }
+    },
+    "uninstaller": {
+        "file": "uninstall.ps1"
+    }
+}

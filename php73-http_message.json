@@ -1,0 +1,32 @@
+{
+    "homepage": "https://pecl.php.net/package/http_message",
+    "version": "0.1.1",
+    "architecture": {
+        "64bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/http_message/0.1.1/php_http_message-0.1.1-7.3-ts-vc15-x64.zip",
+            "hash": "816a37bdb92873769e422a7188672cceb8a729063576c557e792c6bb743441d7"
+        },
+        "32bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/http_message/0.1.1/php_http_message-0.1.1-7.3-ts-vc15-x86.zip",
+            "hash": "96d0fbb550ddf5dff52e52da2aa0dd75c1487f2fb5e21cba6bcd44662caf8df8"
+        }
+    },
+    "depends": [
+        "php"
+    ],
+    "post_install": "$phpconfd = \"$persist_dir\\..\\php\\cli\\conf.d\"; if((test-path $phpconfd)) { echo \"Enabling extension $(Convert-Path $phpconfd)\\http_message.ini\"; echo \"extension=$dir\\php_http_message.dll\" | sc \"$phpconfd\\http_message.ini\"; echo \"Remove-Item '$(Convert-Path $phpconfd)\\http_message.ini'\" | sc \"$dir\\uninstall.ps1\" } else { write-host -f yellow \"PHP was not installed through scoop, you have to activate php_http_message.dll manually!\" }",
+    "checkver": "http_message/([\\d.]+)/windows",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/http_message/$version/php_http_message-$version-7.3-ts-vc15-x64.zip"
+            },
+            "32bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/http_message/$version/php_http_message-$version-7.3-ts-vc15-x86.zip"
+            }
+        }
+    },
+    "uninstaller": {
+        "file": "uninstall.ps1"
+    }
+}

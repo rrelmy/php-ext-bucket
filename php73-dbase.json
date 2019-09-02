@@ -1,0 +1,32 @@
+{
+    "homepage": "https://pecl.php.net/package/dbase",
+    "version": "7.0.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/dbase/7.0.0/php_dbase-7.0.0-7.3-ts-vc15-x64.zip",
+            "hash": "4e6ccd5292ab8b9594bb0367a6936a69cae40c729419bcb964540df31d13faec"
+        },
+        "32bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/dbase/7.0.0/php_dbase-7.0.0-7.3-ts-vc15-x86.zip",
+            "hash": "aa55e9a21461e41341ce20e5ce15b4120425b11db17dd4541a470f6d4accb768"
+        }
+    },
+    "depends": [
+        "php"
+    ],
+    "post_install": "$phpconfd = \"$persist_dir\\..\\php\\cli\\conf.d\"; if((test-path $phpconfd)) { echo \"Enabling extension $(Convert-Path $phpconfd)\\dbase.ini\"; echo \"extension=$dir\\php_dbase.dll\" | sc \"$phpconfd\\dbase.ini\"; echo \"Remove-Item '$(Convert-Path $phpconfd)\\dbase.ini'\" | sc \"$dir\\uninstall.ps1\" } else { write-host -f yellow \"PHP was not installed through scoop, you have to activate php_dbase.dll manually!\" }",
+    "checkver": "dbase/([\\d.]+)/windows",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/dbase/$version/php_dbase-$version-7.3-ts-vc15-x64.zip"
+            },
+            "32bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/dbase/$version/php_dbase-$version-7.3-ts-vc15-x86.zip"
+            }
+        }
+    },
+    "uninstaller": {
+        "file": "uninstall.ps1"
+    }
+}

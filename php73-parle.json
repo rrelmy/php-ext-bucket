@@ -1,0 +1,32 @@
+{
+    "homepage": "https://pecl.php.net/package/parle",
+    "version": "0.8.1",
+    "architecture": {
+        "64bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/parle/0.8.1/php_parle-0.8.1-7.3-ts-vc15-x64.zip",
+            "hash": "4ea44f80e698aeece66172973ae061e8975bb5e2f04374955cc472120450cfd9"
+        },
+        "32bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/parle/0.8.1/php_parle-0.8.1-7.3-ts-vc15-x86.zip",
+            "hash": "95c19de67bd18a170a1f7daa6e24adb803986f0a1f7a8e568ecca77799da7473"
+        }
+    },
+    "depends": [
+        "php"
+    ],
+    "post_install": "$phpconfd = \"$persist_dir\\..\\php\\cli\\conf.d\"; if((test-path $phpconfd)) { echo \"Enabling extension $(Convert-Path $phpconfd)\\parle.ini\"; echo \"extension=$dir\\php_parle.dll\" | sc \"$phpconfd\\parle.ini\"; echo \"Remove-Item '$(Convert-Path $phpconfd)\\parle.ini'\" | sc \"$dir\\uninstall.ps1\" } else { write-host -f yellow \"PHP was not installed through scoop, you have to activate php_parle.dll manually!\" }",
+    "checkver": "parle/([\\d.]+)/windows",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/parle/$version/php_parle-$version-7.3-ts-vc15-x64.zip"
+            },
+            "32bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/parle/$version/php_parle-$version-7.3-ts-vc15-x86.zip"
+            }
+        }
+    },
+    "uninstaller": {
+        "file": "uninstall.ps1"
+    }
+}

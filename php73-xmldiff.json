@@ -1,0 +1,32 @@
+{
+    "homepage": "https://pecl.php.net/package/xmldiff",
+    "version": "1.1.2",
+    "architecture": {
+        "64bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/xmldiff/1.1.2/php_xmldiff-1.1.2-7.3-ts-vc15-x64.zip",
+            "hash": "d9db5b23c7442f293ec036d44ae730e5488cfbce2943ee25db0d4ec417b22057"
+        },
+        "32bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/xmldiff/1.1.2/php_xmldiff-1.1.2-7.3-ts-vc15-x86.zip",
+            "hash": "658c66b0ed7e23d501d96db7295ff693ab1ef16c71ff895b4e50c128987d9f79"
+        }
+    },
+    "depends": [
+        "php"
+    ],
+    "post_install": "$phpconfd = \"$persist_dir\\..\\php\\cli\\conf.d\"; if((test-path $phpconfd)) { echo \"Enabling extension $(Convert-Path $phpconfd)\\xmldiff.ini\"; echo \"extension=$dir\\php_xmldiff.dll\" | sc \"$phpconfd\\xmldiff.ini\"; echo \"Remove-Item '$(Convert-Path $phpconfd)\\xmldiff.ini'\" | sc \"$dir\\uninstall.ps1\" } else { write-host -f yellow \"PHP was not installed through scoop, you have to activate php_xmldiff.dll manually!\" }",
+    "checkver": "xmldiff/([\\d.]+)/windows",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/xmldiff/$version/php_xmldiff-$version-7.3-ts-vc15-x64.zip"
+            },
+            "32bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/xmldiff/$version/php_xmldiff-$version-7.3-ts-vc15-x86.zip"
+            }
+        }
+    },
+    "uninstaller": {
+        "file": "uninstall.ps1"
+    }
+}

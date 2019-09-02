@@ -1,0 +1,32 @@
+{
+    "homepage": "https://pecl.php.net/package/decimal",
+    "version": "1.3.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/decimal/1.3.0/php_decimal-1.3.0-7.3-ts-vc15-x64.zip",
+            "hash": "6234c0fc0804a0f8edaabc3083ea130ac5d677e18489c724e249438da2f7c8a3"
+        },
+        "32bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/decimal/1.3.0/php_decimal-1.3.0-7.3-ts-vc15-x86.zip",
+            "hash": "79f4d3ed57663b36a5e3041079303981aef30f0bb623f73358e6ae9dbe40c987"
+        }
+    },
+    "depends": [
+        "php"
+    ],
+    "post_install": "$phpconfd = \"$persist_dir\\..\\php\\cli\\conf.d\"; if((test-path $phpconfd)) { echo \"Enabling extension $(Convert-Path $phpconfd)\\decimal.ini\"; echo \"extension=$dir\\php_decimal.dll\" | sc \"$phpconfd\\decimal.ini\"; echo \"Remove-Item '$(Convert-Path $phpconfd)\\decimal.ini'\" | sc \"$dir\\uninstall.ps1\" } else { write-host -f yellow \"PHP was not installed through scoop, you have to activate php_decimal.dll manually!\" }",
+    "checkver": "decimal/([\\d.]+)/windows",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/decimal/$version/php_decimal-$version-7.3-ts-vc15-x64.zip"
+            },
+            "32bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/decimal/$version/php_decimal-$version-7.3-ts-vc15-x86.zip"
+            }
+        }
+    },
+    "uninstaller": {
+        "file": "uninstall.ps1"
+    }
+}

@@ -1,0 +1,32 @@
+{
+    "homepage": "https://pecl.php.net/package/propro",
+    "version": "2.1.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/propro/2.1.0/php_propro-2.1.0-7.3-ts-vc15-x64.zip",
+            "hash": "4d263fc0a36616f95fcd0c14d26f750b8e1c1ae51e571323700a304e8b45034c"
+        },
+        "32bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/propro/2.1.0/php_propro-2.1.0-7.3-ts-vc15-x86.zip",
+            "hash": "42cf7cbbaea611e36ad337c7f706b2ac678a96ae867707521320d7b0aba68791"
+        }
+    },
+    "depends": [
+        "php"
+    ],
+    "post_install": "$phpconfd = \"$persist_dir\\..\\php\\cli\\conf.d\"; if((test-path $phpconfd)) { echo \"Enabling extension $(Convert-Path $phpconfd)\\propro.ini\"; echo \"extension=$dir\\php_propro.dll\" | sc \"$phpconfd\\propro.ini\"; echo \"Remove-Item '$(Convert-Path $phpconfd)\\propro.ini'\" | sc \"$dir\\uninstall.ps1\" } else { write-host -f yellow \"PHP was not installed through scoop, you have to activate php_propro.dll manually!\" }",
+    "checkver": "propro/([\\d.]+)/windows",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/propro/$version/php_propro-$version-7.3-ts-vc15-x64.zip"
+            },
+            "32bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/propro/$version/php_propro-$version-7.3-ts-vc15-x86.zip"
+            }
+        }
+    },
+    "uninstaller": {
+        "file": "uninstall.ps1"
+    }
+}

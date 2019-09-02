@@ -1,0 +1,32 @@
+{
+    "homepage": "https://pecl.php.net/package/trader",
+    "version": "0.5.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/trader/0.5.0/php_trader-0.5.0-7.3-ts-vc15-x64.zip",
+            "hash": "82e628f5a126a279c91555fc3a172932493a7e02323794db2bafe0dbcbba456b"
+        },
+        "32bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/trader/0.5.0/php_trader-0.5.0-7.3-ts-vc15-x86.zip",
+            "hash": "653bd38d8e9835636566ce3886e4251fd20afc52d9538680118bceac153b90ca"
+        }
+    },
+    "depends": [
+        "php"
+    ],
+    "post_install": "$phpconfd = \"$persist_dir\\..\\php\\cli\\conf.d\"; if((test-path $phpconfd)) { echo \"Enabling extension $(Convert-Path $phpconfd)\\trader.ini\"; echo \"extension=$dir\\php_trader.dll\" | sc \"$phpconfd\\trader.ini\"; echo \"Remove-Item '$(Convert-Path $phpconfd)\\trader.ini'\" | sc \"$dir\\uninstall.ps1\" } else { write-host -f yellow \"PHP was not installed through scoop, you have to activate php_trader.dll manually!\" }",
+    "checkver": "trader/([\\d.]+)/windows",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/trader/$version/php_trader-$version-7.3-ts-vc15-x64.zip"
+            },
+            "32bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/trader/$version/php_trader-$version-7.3-ts-vc15-x86.zip"
+            }
+        }
+    },
+    "uninstaller": {
+        "file": "uninstall.ps1"
+    }
+}
