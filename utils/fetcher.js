@@ -1,6 +1,4 @@
 const request = require("request");
-const hasha = require("hasha");
-const jsonfile = require("jsonfile");
 const fs = require("fs");
 const cheerio = require("cheerio");
 
@@ -91,29 +89,3 @@ request(statURL, (err, response, body) => {
 function getDownloadURL(package, version, arc) {
     return `https://windows.php.net/downloads/pecl/releases/${package}/${version}/php_${package}-${version}-${phpVersion}-ts-vc15-x${arc}.zip`;
 }
-
-// let uri;
-// uri = 'http://windows.php.net/downloads/pecl/releases/mongodb/1.2.9/php_mongodb-1.2.9-7.1-ts-vc14-x64.zip';
-// request(uri)
-// .on('error', function(err) {
-//     console.log(err)
-//   })
-//   .pipe(hasha.stream({algorithm: 'sha256'})).pipe(process.stdout)
-/*
-const package = process.argv[2];
-const version = process.argv[3];
-if (!package || !version) {
-    return console.error('package and version should be on 1st and 2nd argument');
-}
-const file = './template';
-fs.readFile(file, (err, data) => {
-    console.log(data.toString().replace(/__package__/g, package).replace(/__version__/g, version));
-});
-// jsonfile.readFile(file, function (err, object) {
-//     if (err) {
-//         return console.error(err.message);
-//     }
-//     object.homepage = object.homepage.replace('__package__', package);
-//     console.log(object.homepage)
-// });
-*/
