@@ -1,7 +1,9 @@
+const util = require("util");
 const fs = require("fs");
+const streamPipeline = util.promisify(require("stream").pipeline);
 const jsonfile = require("jsonfile");
 const hasha = require("hasha");
-const request = require("request");
+const fetch = require("node-fetch");
 
 const bit = process.argv[2];
 if (bit != 32 && bit != 64) {
@@ -22,51 +24,52 @@ function hashIt(file) {
     const filePath = "./nohash/" + file;
     jsonfile.readFile(filePath, (err, manifest) => {
         if (err) return console.error({ err });
+
         const options = {
-            url: manifest.architecture[key].url,
             headers: {
                 "User-Agent":
                     "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:62.0) Gecko/20100101 Firefox/62.0",
             },
         };
 
-        request(options)
-            .on("error", function (err) {
-                console.log("error geting", name, key);
-                console.error({
-                    err,
-                });
-            })
-            .on("response", (response) => {
-                if (response.statusCode !== 200) {
+        fetch(manifest.architecture[key].url, options)
+            .then((response) => {
+                if (!response.ok) {
                     console.error("error getting", name, key);
                     return;
                 }
 
-                response
-                    .pipe(
-                        hasha.stream({
+                streamPipeline(
+                    response.body,
+                    hasha
+                        .stream({
                             algorithm: "sha256",
                         })
-                    )
-                    .on("data", (hash) => {
-                        manifest.architecture[key]["hash"] = hash;
-                        console.log("writing hash for " + name, key, hash);
-                        jsonfile.writeFile(
-                            filePath,
-                            manifest,
-                            {
-                                spaces: 4,
-                            },
-                            (err) => {
-                                if (!err) return;
-                                console.error("cannot write to", filePath);
-                                console.error({
-                                    err,
-                                });
-                            }
-                        );
-                    });
+                        .on("data", (hash) => {
+                            manifest.architecture[key]["hash"] = hash;
+                            console.log("writing hash for " + name, key, hash);
+                            jsonfile.writeFile(
+                                filePath,
+                                manifest,
+                                {
+                                    spaces: 4,
+                                },
+                                (err) => {
+                                    if (!err) return;
+                                    console.error("cannot write to", filePath);
+                                    console.error({
+                                        err,
+                                    });
+                                }
+                            );
+                        })
+                );
+            })
+            .catch(function (err) {
+                console.log("error geting", name, key);
+                console.error({
+                    err,
+                });
             });
     });
 }
