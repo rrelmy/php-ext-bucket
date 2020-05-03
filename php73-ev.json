@@ -1,0 +1,32 @@
+{
+    "homepage": "https://pecl.php.net/package/ev",
+    "version": "1.0.8",
+    "architecture": {
+        "64bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/ev/1.0.8/php_ev-1.0.8-7.3-ts-vc15-x64.zip",
+            "hash": "3a62d354ae6c3efd3d925a5a30005ba3c77bfaf6e5eab4bebdee29e7e20ef1b7"
+        },
+        "32bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/ev/1.0.8/php_ev-1.0.8-7.3-ts-vc15-x86.zip",
+            "hash": "6c5d3cfa5814d4c5739c6ef436d1f0bdc6046698416c6736255af7496250460f"
+        }
+    },
+    "depends": [
+        "php"
+    ],
+    "post_install": "$phpconfd = \"$persist_dir\\..\\php\\cli\\conf.d\"; if((test-path $phpconfd)) { echo \"Enabling extension $(Convert-Path $phpconfd)\\ev.ini\"; echo \"extension=$dir\\php_ev.dll\" | sc \"$phpconfd\\ev.ini\"; echo \"Remove-Item '$(Convert-Path $phpconfd)\\ev.ini'\" | sc \"$dir\\uninstall.ps1\" } else { write-host -f yellow \"PHP was not installed through scoop, you have to activate php_ev.dll manually!\" }",
+    "checkver": "ev/([\\d.]+)/windows",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/ev/$version/php_ev-$version-7.3-ts-vc15-x64.zip"
+            },
+            "32bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/ev/$version/php_ev-$version-7.3-ts-vc15-x86.zip"
+            }
+        }
+    },
+    "uninstaller": {
+        "file": "uninstall.ps1"
+    }
+}

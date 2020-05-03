@@ -1,14 +1,14 @@
 {
     "homepage": "https://pecl.php.net/package/xlswriter",
-    "version": "1.2.6",
+    "version": "1.3.4.1",
     "architecture": {
         "64bit": {
-            "url": "https://windows.php.net/downloads/pecl/releases/xlswriter/1.2.6/php_xlswriter-1.2.6-7.3-ts-vc15-x64.zip",
-            "hash": "2b1e9d6475ef745af0326be79b936775628d7b7888147a5cdf3c2b7f71bfc15f"
+            "url": "https://windows.php.net/downloads/pecl/releases/xlswriter/1.3.4.1/php_xlswriter-1.3.4.1-7.3-ts-vc15-x64.zip",
+            "hash": "3fec91fb1595e859fd24bc2877acd6035f6b71a1c3ee1ef702f66498c2253d7f"
         },
         "32bit": {
-            "url": "https://windows.php.net/downloads/pecl/releases/xlswriter/1.2.6/php_xlswriter-1.2.6-7.3-ts-vc15-x86.zip",
-            "hash": "49d2fa1b3f0009e0eab26b064503b095b9e433112b9a76e4c78d8b15ee5ae340"
+            "url": "https://windows.php.net/downloads/pecl/releases/xlswriter/1.3.4.1/php_xlswriter-1.3.4.1-7.3-ts-vc15-x86.zip",
+            "hash": "8f03655adff3dec8dcad1c37f9fe2d15288825d0811e3c681d3327ceb014fbe1"
         }
     },
     "depends": [

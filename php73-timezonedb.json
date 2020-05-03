@@ -1,14 +1,14 @@
 {
     "homepage": "https://pecl.php.net/package/timezonedb",
-    "version": "2019.2",
+    "version": "2020.1",
     "architecture": {
         "64bit": {
-            "url": "https://windows.php.net/downloads/pecl/releases/timezonedb/2019.2/php_timezonedb-2019.2-7.3-ts-vc15-x64.zip",
-            "hash": "d512443a638cbbbb923e69d54b68e40a0779b2e0bf4846cdb2938731c8b739fb"
+            "url": "https://windows.php.net/downloads/pecl/releases/timezonedb/2020.1/php_timezonedb-2020.1-7.3-ts-vc15-x64.zip",
+            "hash": "89e713d47a8ec8a700d6fd489b987b2aa73c01b29745472f4fa2bf1e02d28038"
         },
         "32bit": {
-            "url": "https://windows.php.net/downloads/pecl/releases/timezonedb/2019.2/php_timezonedb-2019.2-7.3-ts-vc15-x86.zip",
-            "hash": "0698ca2dd33765990c0378784d02be3467dec04662324787f82a55bbe77a736f"
+            "url": "https://windows.php.net/downloads/pecl/releases/timezonedb/2020.1/php_timezonedb-2020.1-7.3-ts-vc15-x86.zip",
+            "hash": "e7c6b102c8089820cab0e274a7a0e4ad9044494d3cb31a0e8ea968ed5bbf78e4"
         }
     },
     "depends": [

@@ -1,14 +1,14 @@
 {
     "homepage": "https://pecl.php.net/package/psr",
-    "version": "0.7.0",
+    "version": "1.0.0",
     "architecture": {
         "64bit": {
-            "url": "https://windows.php.net/downloads/pecl/releases/psr/0.7.0/php_psr-0.7.0-7.3-ts-vc15-x64.zip",
-            "hash": "f0de72b852102a4c918b69afacdb34ae3a1621e5d1d373a11fe097083bd423a2"
+            "url": "https://windows.php.net/downloads/pecl/releases/psr/1.0.0/php_psr-1.0.0-7.3-ts-vc15-x64.zip",
+            "hash": "9f8eb43a04e1f05453a96558ed323f1461982d22efe7eabbc2853b6c801b2f52"
         },
         "32bit": {
-            "url": "https://windows.php.net/downloads/pecl/releases/psr/0.7.0/php_psr-0.7.0-7.3-ts-vc15-x86.zip",
-            "hash": "0219dfefd7a0b5eab4b1e53273ebfe9ae89aba4dc5002673e9c948abec7cf677"
+            "url": "https://windows.php.net/downloads/pecl/releases/psr/1.0.0/php_psr-1.0.0-7.3-ts-vc15-x86.zip",
+            "hash": "b53148039cf52dbe61eba9ad24c96682cc142f8b9ed3b7e5a3bce2b575700e2f"
         }
     },
     "depends": [

@@ -1,14 +1,14 @@
 {
     "homepage": "https://pecl.php.net/package/componere",
-    "version": "3.1.0",
+    "version": "3.1.1",
     "architecture": {
         "64bit": {
-            "url": "https://windows.php.net/downloads/pecl/releases/componere/3.1.0/php_componere-3.1.0-7.3-ts-vc15-x64.zip",
-            "hash": "7b5837fa66f24fe61e30180474c1f9785a77fe04d6eddf99ba72299299ab7262"
+            "url": "https://windows.php.net/downloads/pecl/releases/componere/3.1.1/php_componere-3.1.1-7.3-ts-vc15-x64.zip",
+            "hash": "a7ca5d11970f54aab2a0dc39a72d892fb86070da235f9f3f2ce19b660c749953"
         },
         "32bit": {
-            "url": "https://windows.php.net/downloads/pecl/releases/componere/3.1.0/php_componere-3.1.0-7.3-ts-vc15-x86.zip",
-            "hash": "ae179e3723027258acc3857ada3c12eeb416cdb33e10124f1c2f2aa3bec2ea73"
+            "url": "https://windows.php.net/downloads/pecl/releases/componere/3.1.1/php_componere-3.1.1-7.3-ts-vc15-x86.zip",
+            "hash": "dbff824de391ecbb7ffc1237ec5055560a53281bfad562e4d562090a1eb1f194"
         }
     },
     "depends": [

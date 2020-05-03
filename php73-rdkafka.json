@@ -1,0 +1,32 @@
+{
+    "homepage": "https://pecl.php.net/package/rdkafka",
+    "version": "4.0.3",
+    "architecture": {
+        "64bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/rdkafka/4.0.3/php_rdkafka-4.0.3-7.3-ts-vc15-x64.zip",
+            "hash": "2a431d0f9335afdcc8989324c3739a31cebbc6c6af7b52dfe8d75dca012d67a0"
+        },
+        "32bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/rdkafka/4.0.3/php_rdkafka-4.0.3-7.3-ts-vc15-x86.zip",
+            "hash": "7616c488df41ba6f50b7396e58fa45114ca09590d0934908d039bfc780f1aa58"
+        }
+    },
+    "depends": [
+        "php"
+    ],
+    "post_install": "$phpconfd = \"$persist_dir\\..\\php\\cli\\conf.d\"; if((test-path $phpconfd)) { echo \"Enabling extension $(Convert-Path $phpconfd)\\rdkafka.ini\"; echo \"extension=$dir\\php_rdkafka.dll\" | sc \"$phpconfd\\rdkafka.ini\"; echo \"Remove-Item '$(Convert-Path $phpconfd)\\rdkafka.ini'\" | sc \"$dir\\uninstall.ps1\" } else { write-host -f yellow \"PHP was not installed through scoop, you have to activate php_rdkafka.dll manually!\" }",
+    "checkver": "rdkafka/([\\d.]+)/windows",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/rdkafka/$version/php_rdkafka-$version-7.3-ts-vc15-x64.zip"
+            },
+            "32bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/rdkafka/$version/php_rdkafka-$version-7.3-ts-vc15-x86.zip"
+            }
+        }
+    },
+    "uninstaller": {
+        "file": "uninstall.ps1"
+    }
+}

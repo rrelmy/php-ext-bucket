@@ -1,0 +1,32 @@
+{
+    "homepage": "https://pecl.php.net/package/request",
+    "version": "2.0.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/request/2.0.0/php_request-2.0.0-7.3-ts-vc15-x64.zip",
+            "hash": "d62d7da58913f1bc62da75813c558b5ec38f9e9c0b7d5a8d722903f5d51f103a"
+        },
+        "32bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/request/2.0.0/php_request-2.0.0-7.3-ts-vc15-x86.zip",
+            "hash": "3112b727adc932816863e693c78eabfa51bbccfeda4bb70234dfbd145c95f3bd"
+        }
+    },
+    "depends": [
+        "php"
+    ],
+    "post_install": "$phpconfd = \"$persist_dir\\..\\php\\cli\\conf.d\"; if((test-path $phpconfd)) { echo \"Enabling extension $(Convert-Path $phpconfd)\\request.ini\"; echo \"extension=$dir\\php_request.dll\" | sc \"$phpconfd\\request.ini\"; echo \"Remove-Item '$(Convert-Path $phpconfd)\\request.ini'\" | sc \"$dir\\uninstall.ps1\" } else { write-host -f yellow \"PHP was not installed through scoop, you have to activate php_request.dll manually!\" }",
+    "checkver": "request/([\\d.]+)/windows",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/request/$version/php_request-$version-7.3-ts-vc15-x64.zip"
+            },
+            "32bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/request/$version/php_request-$version-7.3-ts-vc15-x86.zip"
+            }
+        }
+    },
+    "uninstaller": {
+        "file": "uninstall.ps1"
+    }
+}

@@ -1,14 +1,14 @@
 {
     "homepage": "https://pecl.php.net/package/dbase",
-    "version": "7.0.0",
+    "version": "7.0.1",
     "architecture": {
         "64bit": {
-            "url": "https://windows.php.net/downloads/pecl/releases/dbase/7.0.0/php_dbase-7.0.0-7.3-ts-vc15-x64.zip",
-            "hash": "4e6ccd5292ab8b9594bb0367a6936a69cae40c729419bcb964540df31d13faec"
+            "url": "https://windows.php.net/downloads/pecl/releases/dbase/7.0.1/php_dbase-7.0.1-7.3-ts-vc15-x64.zip",
+            "hash": "da5a0ac08fc5b0643d2baf7b06cac887e4579433a14d2b48106f4db4aeba986a"
         },
         "32bit": {
-            "url": "https://windows.php.net/downloads/pecl/releases/dbase/7.0.0/php_dbase-7.0.0-7.3-ts-vc15-x86.zip",
-            "hash": "aa55e9a21461e41341ce20e5ce15b4120425b11db17dd4541a470f6d4accb768"
+            "url": "https://windows.php.net/downloads/pecl/releases/dbase/7.0.1/php_dbase-7.0.1-7.3-ts-vc15-x86.zip",
+            "hash": "715213d8fa852d6f6cf870103d9af24a1f15c7bc4be5d44638899694d24be211"
         }
     },
     "depends": [

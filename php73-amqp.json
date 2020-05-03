@@ -1,14 +1,14 @@
 {
     "homepage": "https://pecl.php.net/package/amqp",
-    "version": "1.9.4",
+    "version": "1.10.2",
     "architecture": {
         "64bit": {
-            "url": "https://windows.php.net/downloads/pecl/releases/amqp/1.9.4/php_amqp-1.9.4-7.3-ts-vc15-x64.zip",
-            "hash": "910288e7620b4f625c559287daa85e3014c7213a6d5368f96b6ee735c60350d7"
+            "url": "https://windows.php.net/downloads/pecl/releases/amqp/1.10.2/php_amqp-1.10.2-7.3-ts-vc15-x64.zip",
+            "hash": "04c2da2de4fb8e96aec2043877f430fa9d55c5e16865aa85c35353544fb427e6"
         },
         "32bit": {
-            "url": "https://windows.php.net/downloads/pecl/releases/amqp/1.9.4/php_amqp-1.9.4-7.3-ts-vc15-x86.zip",
-            "hash": "d7a64e033ede687745d835667ab6e656d676351fb21b1ebb147a2c1e8077f2fe"
+            "url": "https://windows.php.net/downloads/pecl/releases/amqp/1.10.2/php_amqp-1.10.2-7.3-ts-vc15-x86.zip",
+            "hash": "0fbb4b432649f2a27370922727e95bf3ddef7c8ec52f6403cc2144ec6de4545a"
         }
     },
     "depends": [

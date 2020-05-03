@@ -1,14 +1,14 @@
 {
     "homepage": "https://pecl.php.net/package/uopz",
-    "version": "6.1.0",
+    "version": "6.1.1",
     "architecture": {
         "64bit": {
-            "url": "https://windows.php.net/downloads/pecl/releases/uopz/6.1.0/php_uopz-6.1.0-7.3-ts-vc15-x64.zip",
-            "hash": "1cf983595dfc2483f47bfa2d7650c3fb4413b325a773b691e92eeabfc241e6c6"
+            "url": "https://windows.php.net/downloads/pecl/releases/uopz/6.1.1/php_uopz-6.1.1-7.3-ts-vc15-x64.zip",
+            "hash": "fbe749995666a01cb48d8ac2cad2801211f9c3f1fef48b78cbd9b6fa3ccfbad1"
         },
         "32bit": {
-            "url": "https://windows.php.net/downloads/pecl/releases/uopz/6.1.0/php_uopz-6.1.0-7.3-ts-vc15-x86.zip",
-            "hash": "667d0d59fde04d64b742f6cbe6eab02b050dce61061ad569c8c5e939a7a19378"
+            "url": "https://windows.php.net/downloads/pecl/releases/uopz/6.1.1/php_uopz-6.1.1-7.3-ts-vc15-x86.zip",
+            "hash": "f302580dbc33bfb8d2f9c9b2fae96ff6e143d10d8daa3ad98ed798677aec3e7c"
         }
     },
     "depends": [

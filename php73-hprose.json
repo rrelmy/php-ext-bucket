@@ -1,14 +1,14 @@
 {
     "homepage": "https://pecl.php.net/package/hprose",
-    "version": "1.6.8",
+    "version": "1.8.0",
     "architecture": {
         "64bit": {
-            "url": "https://windows.php.net/downloads/pecl/releases/hprose/1.6.8/php_hprose-1.6.8-7.3-ts-vc15-x64.zip",
-            "hash": "aaef0680c0b199e968ffcf46aa71393d3d1760a5c56471bacf4b922dada42b25"
+            "url": "https://windows.php.net/downloads/pecl/releases/hprose/1.8.0/php_hprose-1.8.0-7.3-ts-vc15-x64.zip",
+            "hash": "ebd43f1ae51e9c41b2c67af2bdf185fcd83981f712ded131beea0624a03a547b"
         },
         "32bit": {
-            "url": "https://windows.php.net/downloads/pecl/releases/hprose/1.6.8/php_hprose-1.6.8-7.3-ts-vc15-x86.zip",
-            "hash": "183c5f4e457a92bdcb1430b0435995d4191880443260b5be12e191c508d80c1e"
+            "url": "https://windows.php.net/downloads/pecl/releases/hprose/1.8.0/php_hprose-1.8.0-7.3-ts-vc15-x86.zip",
+            "hash": "15834abf5c0652df9a8582283b6da280e13f005eb6c204986d9758692ad7bbe2"
         }
     },
     "depends": [

@@ -1,14 +1,14 @@
 {
     "homepage": "https://pecl.php.net/package/mailparse",
-    "version": "3.0.3",
+    "version": "3.1.0",
     "architecture": {
         "64bit": {
-            "url": "https://windows.php.net/downloads/pecl/releases/mailparse/3.0.3/php_mailparse-3.0.3-7.3-ts-vc15-x64.zip",
-            "hash": "eef40877984ecb0afa70eb278c3e51f50d3f7d007b7766f485e08206defd662e"
+            "url": "https://windows.php.net/downloads/pecl/releases/mailparse/3.1.0/php_mailparse-3.1.0-7.3-ts-vc15-x64.zip",
+            "hash": "5940216feefc822b3683210e522e044cc5f49f27a6dae77f432443254c6c1876"
         },
         "32bit": {
-            "url": "https://windows.php.net/downloads/pecl/releases/mailparse/3.0.3/php_mailparse-3.0.3-7.3-ts-vc15-x86.zip",
-            "hash": "8beb846659e67cd91208204fae58495805aff40506937a3b99af5f3593847b53"
+            "url": "https://windows.php.net/downloads/pecl/releases/mailparse/3.1.0/php_mailparse-3.1.0-7.3-ts-vc15-x86.zip",
+            "hash": "68311106f9b6e20e0e1a306aba30037950d43c26604a031f30b22bdfdc8ddfa9"
         }
     },
     "depends": [

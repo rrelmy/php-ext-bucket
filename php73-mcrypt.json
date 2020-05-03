@@ -1,0 +1,32 @@
+{
+    "homepage": "https://pecl.php.net/package/mcrypt",
+    "version": "1.0.3",
+    "architecture": {
+        "64bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/mcrypt/1.0.3/php_mcrypt-1.0.3-7.3-ts-vc15-x64.zip",
+            "hash": "540734b00ee7f72dc54ad650c37c597d91c9509d0765bdd677ff35cc13ed8ac5"
+        },
+        "32bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/mcrypt/1.0.3/php_mcrypt-1.0.3-7.3-ts-vc15-x86.zip",
+            "hash": "def7311b57141e75ba22a4599465c691ba1c28468f3217f167885bf21cdcc43c"
+        }
+    },
+    "depends": [
+        "php"
+    ],
+    "post_install": "$phpconfd = \"$persist_dir\\..\\php\\cli\\conf.d\"; if((test-path $phpconfd)) { echo \"Enabling extension $(Convert-Path $phpconfd)\\mcrypt.ini\"; echo \"extension=$dir\\php_mcrypt.dll\" | sc \"$phpconfd\\mcrypt.ini\"; echo \"Remove-Item '$(Convert-Path $phpconfd)\\mcrypt.ini'\" | sc \"$dir\\uninstall.ps1\" } else { write-host -f yellow \"PHP was not installed through scoop, you have to activate php_mcrypt.dll manually!\" }",
+    "checkver": "mcrypt/([\\d.]+)/windows",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/mcrypt/$version/php_mcrypt-$version-7.3-ts-vc15-x64.zip"
+            },
+            "32bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/mcrypt/$version/php_mcrypt-$version-7.3-ts-vc15-x86.zip"
+            }
+        }
+    },
+    "uninstaller": {
+        "file": "uninstall.ps1"
+    }
+}

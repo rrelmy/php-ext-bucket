@@ -4,11 +4,11 @@
     "architecture": {
         "64bit": {
             "url": "https://windows.php.net/downloads/pecl/releases/apcu_bc/1.0.5/php_apcu_bc-1.0.5-7.3-ts-vc15-x64.zip",
-            "hash": "aedda955eb03a9af86025d553de8d2c3f319eda144907d4bac40acf15d8fa14e"
+            "hash": "8c481ed5c798f3b862437f6029a47217ffe777c7f38a72869607cf914c79521a"
         },
         "32bit": {
             "url": "https://windows.php.net/downloads/pecl/releases/apcu_bc/1.0.5/php_apcu_bc-1.0.5-7.3-ts-vc15-x86.zip",
-            "hash": "591a913f48c4d75bbbc4a6c4558f166f2d74c9a779f84f62e0fc33f80e960451"
+            "hash": "c5113ef203e681035f974cc2bf1c534c82af1114282af9669489d624a98ea21a"
         }
     },
     "depends": [

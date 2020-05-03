@@ -1,14 +1,14 @@
 {
     "homepage": "https://pecl.php.net/package/msgpack",
-    "version": "2.0.3",
+    "version": "2.1.0",
     "architecture": {
         "64bit": {
-            "url": "https://windows.php.net/downloads/pecl/releases/msgpack/2.0.3/php_msgpack-2.0.3-7.3-ts-vc15-x64.zip",
-            "hash": "72986cfeb5bb7a9d1a9cb9f37aa63bf5a5d1637851796ad094db65578dc2d9e0"
+            "url": "https://windows.php.net/downloads/pecl/releases/msgpack/2.1.0/php_msgpack-2.1.0-7.3-ts-vc15-x64.zip",
+            "hash": "fb76a05da8a5bd5242a071035fb3c14e46c569e8918524750f116cf0fbf02816"
         },
         "32bit": {
-            "url": "https://windows.php.net/downloads/pecl/releases/msgpack/2.0.3/php_msgpack-2.0.3-7.3-ts-vc15-x86.zip",
-            "hash": "06f3e52da6b6ccab9bbfe3affa56113ddd31e13305b750a0374646370254b2d1"
+            "url": "https://windows.php.net/downloads/pecl/releases/msgpack/2.1.0/php_msgpack-2.1.0-7.3-ts-vc15-x86.zip",
+            "hash": "6a39289e87227f5a863518130a30e6b732b8a00469173957603be39d26332a84"
         }
     },
     "depends": [

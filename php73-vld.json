@@ -1,14 +1,14 @@
 {
     "homepage": "https://pecl.php.net/package/vld",
-    "version": "0.16.0",
+    "version": "0.17.0",
     "architecture": {
         "64bit": {
-            "url": "https://windows.php.net/downloads/pecl/releases/vld/0.16.0/php_vld-0.16.0-7.3-ts-vc15-x64.zip",
-            "hash": "568c14379d9875897b24c55bcf31fc3947dafe0e754a230b1a70da81f965380a"
+            "url": "https://windows.php.net/downloads/pecl/releases/vld/0.17.0/php_vld-0.17.0-7.3-ts-vc15-x64.zip",
+            "hash": "60ba30a9a7f6d2e8c7d9cb02417a2685efcf95e05c55374365907e3c66cbf270"
         },
         "32bit": {
-            "url": "https://windows.php.net/downloads/pecl/releases/vld/0.16.0/php_vld-0.16.0-7.3-ts-vc15-x86.zip",
-            "hash": "ed1b3ffc8c27062cfd51d0b050e17a1b0536274d3849cb99ecc55b78e166c36d"
+            "url": "https://windows.php.net/downloads/pecl/releases/vld/0.17.0/php_vld-0.17.0-7.3-ts-vc15-x86.zip",
+            "hash": "3e582839e490f2663fcbd6dc075be627a16511ac531239375822a7cf29fa3584"
         }
     },
     "depends": [

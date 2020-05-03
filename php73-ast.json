@@ -1,14 +1,14 @@
 {
     "homepage": "https://pecl.php.net/package/ast",
-    "version": "1.0.3",
+    "version": "1.0.6",
     "architecture": {
         "64bit": {
-            "url": "https://windows.php.net/downloads/pecl/releases/ast/1.0.3/php_ast-1.0.3-7.3-ts-vc15-x64.zip",
-            "hash": "a77cc6ecf5fc53cc9b935b2e115f729db81a024f3f05b7a37d198505756d5169"
+            "url": "https://windows.php.net/downloads/pecl/releases/ast/1.0.6/php_ast-1.0.6-7.3-ts-vc15-x64.zip",
+            "hash": "00f352d85360278f01568e88dc9204da4ba0f0420c5371ec23de5bd8dde0b34b"
         },
         "32bit": {
-            "url": "https://windows.php.net/downloads/pecl/releases/ast/1.0.3/php_ast-1.0.3-7.3-ts-vc15-x86.zip",
-            "hash": "a7da065b7151a4f7ed202bc853645e14cea44a85f89617d688870ef3e9fc091b"
+            "url": "https://windows.php.net/downloads/pecl/releases/ast/1.0.6/php_ast-1.0.6-7.3-ts-vc15-x86.zip",
+            "hash": "606e37be50a646c66e1d4cb94af08d4e9ac4202c59bad48de74bc6a7ac1ced8c"
         }
     },
     "depends": [

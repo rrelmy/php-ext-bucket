@@ -1,14 +1,14 @@
 {
     "homepage": "https://pecl.php.net/package/dio",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "architecture": {
         "64bit": {
-            "url": "https://windows.php.net/downloads/pecl/releases/dio/0.1.0/php_dio-0.1.0-7.3-ts-vc15-x64.zip",
-            "hash": "72e9da87742dac92a33cfe6fffcf0fe9d97d2fada840a5600f222bb9273c5755"
+            "url": "https://windows.php.net/downloads/pecl/releases/dio/0.2.0/php_dio-0.2.0-7.3-ts-vc15-x64.zip",
+            "hash": "9ea5e6fcbea638db1ae0e1f38b1ee4c75f2032a8464017fccd6bbe7fc9569e11"
         },
         "32bit": {
-            "url": "https://windows.php.net/downloads/pecl/releases/dio/0.1.0/php_dio-0.1.0-7.3-ts-vc15-x86.zip",
-            "hash": "8e66e8e92c4e0554556a499de19f1241d4016b0d53461be049f993daabe7d0f4"
+            "url": "https://windows.php.net/downloads/pecl/releases/dio/0.2.0/php_dio-0.2.0-7.3-ts-vc15-x86.zip",
+            "hash": "29f2251d92e428bff56974d4b2eaedf51ab8cfab811be86102d5d69fa56b060d"
         }
     },
     "depends": [

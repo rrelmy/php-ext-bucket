@@ -1,14 +1,14 @@
 {
     "homepage": "https://pecl.php.net/package/seaslog",
-    "version": "2.0.2",
+    "version": "2.1.0",
     "architecture": {
         "64bit": {
-            "url": "https://windows.php.net/downloads/pecl/releases/seaslog/2.0.2/php_seaslog-2.0.2-7.3-ts-vc15-x64.zip",
-            "hash": "a3a09d0b9a849c3f9ba87796cb93305d143691ed9abd0384e26bc30a4e5b19d7"
+            "url": "https://windows.php.net/downloads/pecl/releases/seaslog/2.1.0/php_seaslog-2.1.0-7.3-ts-vc15-x64.zip",
+            "hash": "78cf87c1d119328c8b6d8d246af69f969e7e77983b9627e5701d69e436091e0b"
         },
         "32bit": {
-            "url": "https://windows.php.net/downloads/pecl/releases/seaslog/2.0.2/php_seaslog-2.0.2-7.3-ts-vc15-x86.zip",
-            "hash": "c77798134a118b2dc893b915cd877e0e762847eb18de7da68ac4a30084b87567"
+            "url": "https://windows.php.net/downloads/pecl/releases/seaslog/2.1.0/php_seaslog-2.1.0-7.3-ts-vc15-x86.zip",
+            "hash": "9990fbc5c9c15ea36037ef380bdd44122a9a370d64bd82c309ef3148b9d539f2"
         }
     },
     "depends": [

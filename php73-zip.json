@@ -1,0 +1,32 @@
+{
+    "homepage": "https://pecl.php.net/package/zip",
+    "version": "1.18.2",
+    "architecture": {
+        "64bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/zip/1.18.2/php_zip-1.18.2-7.3-ts-vc15-x64.zip",
+            "hash": "27068f74dc73223f463d7ef602f3e5ecb645b6da8a950672dee1027a4ade3b94"
+        },
+        "32bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/zip/1.18.2/php_zip-1.18.2-7.3-ts-vc15-x86.zip",
+            "hash": "39a7fc959d34f9c97ad4e23f019dc72bf0f7f8f216485b9351a5c346a280066e"
+        }
+    },
+    "depends": [
+        "php"
+    ],
+    "post_install": "$phpconfd = \"$persist_dir\\..\\php\\cli\\conf.d\"; if((test-path $phpconfd)) { echo \"Enabling extension $(Convert-Path $phpconfd)\\zip.ini\"; echo \"extension=$dir\\php_zip.dll\" | sc \"$phpconfd\\zip.ini\"; echo \"Remove-Item '$(Convert-Path $phpconfd)\\zip.ini'\" | sc \"$dir\\uninstall.ps1\" } else { write-host -f yellow \"PHP was not installed through scoop, you have to activate php_zip.dll manually!\" }",
+    "checkver": "zip/([\\d.]+)/windows",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/zip/$version/php_zip-$version-7.3-ts-vc15-x64.zip"
+            },
+            "32bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/zip/$version/php_zip-$version-7.3-ts-vc15-x86.zip"
+            }
+        }
+    },
+    "uninstaller": {
+        "file": "uninstall.ps1"
+    }
+}
