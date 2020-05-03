@@ -69,9 +69,16 @@ fetch(statURL)
                                         );
                                         return;
                                     }
+
+                                    const templateFile = fs.existsSync(
+                                        `./template-${packageName}.json`
+                                    )
+                                        ? `./template-${packageName}.json`
+                                        : "./template.json";
+
                                     // replace package name
                                     let template = fs
-                                        .readFileSync("template.json")
+                                        .readFileSync(templateFile)
                                         .toString();
                                     template = template.replace(
                                         /__package__/g,
