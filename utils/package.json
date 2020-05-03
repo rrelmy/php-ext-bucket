@@ -7,8 +7,8 @@
   "license": "MIT",
   "dependencies": {
     "cheerio": "^0.22.0",
-    "hasha": "^3.0.0",
-    "jsonfile": "^3.0.0",
-    "request": "^2.81.0"
+    "hasha": "^5.2.0",
+    "jsonfile": "^6.0.1",
+    "request": "^2.88.2"
   }
 }
