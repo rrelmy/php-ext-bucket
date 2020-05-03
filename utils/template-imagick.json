@@ -1,33 +1,23 @@
 {
-    "homepage": "https://pecl.php.net/package/imagick",
-    "version": "3.4.4",
+    "homepage": "https://pecl.php.net/package/__package__",
+    "version": "__version__",
     "architecture": {
         "64bit": {
             "url": [
-                "https://windows.php.net/downloads/pecl/releases/imagick/3.4.4/php_imagick-3.4.4-7.4-ts-vc15-x64.zip",
+                "https://windows.php.net/downloads/pecl/releases/__package__/__version__/php___package__-__version__-__phpversion__-ts-vc15-x64.zip",
                 "https://windows.php.net/downloads/pecl/deps/ImageMagick-7.0.7-11-vc15-x64.zip"
-            ],
-            "hash": [
-                "8279864f0bd7af06ebb3e870723a28f1f9f893624b64741828544e354323e600",
-                "0b8c98bba36e9ca9fe9e24597180d08609b05d46c5f34ecf255fb561a933aa0e"
             ]
         },
         "32bit": {
             "url": [
-                "https://windows.php.net/downloads/pecl/releases/imagick/3.4.4/php_imagick-3.4.4-7.4-ts-vc15-x86.zip",
+                "https://windows.php.net/downloads/pecl/releases/__package__/__version__/php___package__-__version__-__phpversion__-ts-vc15-x86.zip",
                 "https://windows.php.net/downloads/pecl/deps/ImageMagick-7.0.7-11-vc15-x86.zip"
-            ],
-            "hash": [
-                "8c26e3e3986a74219cfca12a1297baa915dbfbbcbc3ba82df5f228943946b5d7",
-                "bf0731fd0f3d0b603b8df30adb2dfa3b2178a0db1e61ca8617a7bc9add2906d7"
             ]
         }
     },
-    "depends": [
-        "php"
-    ],
+    "depends": ["php"],
     "post_install": "$phpconfd = \"$persist_dir\\..\\php\\cli\\conf.d\"; if((test-path $phpconfd)) { echo \"Enabling extension $(Convert-Path $phpconfd)\\imagick.ini\"; echo \"extension=$dir\\php_imagick.dll\" | sc \"$phpconfd\\imagick.ini\"; echo \"Remove-Item '$(Convert-Path $phpconfd)\\imagick.ini'\" | sc \"$dir\\uninstall.ps1\" } else { write-host -f yellow \"PHP was not installed through scoop, you have to activate php_imagick.dll manually!\" } Write-Host \"Remove .exe files to prevent confusion with imagemagick\" Remove-Item $dir\\bin\\*.exe",
-    "checkver": "imagick/([\\d.]+)/windows",
+    "checkver": "__package__/([\\d.]+)/windows",
     "uninstaller": {
         "file": "uninstall.ps1"
     }

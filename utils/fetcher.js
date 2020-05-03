@@ -32,6 +32,7 @@ fetch(statURL)
 
         table.each(function () {
             let packageName = $(this).text();
+
             console.info(packageName);
             const packageSaveAs =
                 tempDirectory + "/php-" + packageName + ".json";

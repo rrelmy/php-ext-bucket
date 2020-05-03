@@ -19,57 +19,76 @@ if (process.argv[3]) {
     });
 }
 
-function hashIt(file) {
-    const name = file.match(/php-(.*).json$/)[1];
-    const filePath = "./nohash/" + file;
-    jsonfile.readFile(filePath, (err, manifest) => {
-        if (err) return console.error({ err });
+const fetchOptions = {
+    headers: {
+        "User-Agent":
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:62.0) Gecko/20100101 Firefox/62.0",
+    },
+};
 
-        const options = {
-            headers: {
-                "User-Agent":
-                    "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:62.0) Gecko/20100101 Firefox/62.0",
-            },
-        };
-
-        fetch(manifest.architecture[key].url, options)
+function fetchHash(url) {
+    return new Promise((resolve, reject) => {
+        fetch(url, fetchOptions)
             .then((response) => {
                 if (!response.ok) {
-                    console.error("error getting", name, key);
+                    reject({ message: "error getting", name, key });
                     return;
                 }
 
                 streamPipeline(
                     response.body,
-                    hasha
-                        .stream({
-                            algorithm: "sha256",
-                        })
-                        .on("data", (hash) => {
-                            manifest.architecture[key]["hash"] = hash;
-                            console.log("writing hash for " + name, key, hash);
-                            jsonfile.writeFile(
-                                filePath,
-                                manifest,
-                                {
-                                    spaces: 4,
-                                },
-                                (err) => {
-                                    if (!err) return;
-                                    console.error("cannot write to", filePath);
-                                    console.error({
-                                        err,
-                                    });
-                                }
-                            );
-                        })
+                    hasha.stream({ algorithm: "sha256" }).on("data", (hash) => {
+                        resolve(hash);
+                    })
                 );
             })
             .catch(function (err) {
-                console.log("error geting", name, key);
+                reject({ message: "error geting", name, key, err });
+            });
+    });
+}
+
+async function hashIt(file) {
+    const name = file.match(/php-(.*).json$/)[1];
+    const filePath = "./nohash/" + file;
+
+    /**
+     * jsonfile.readFile actually supports glob patterns to read multiple files
+     */
+    jsonfile.readFile(filePath, async (err, manifest) => {
+        if (err) return console.error({ err });
+
+        const hashes = await Promise.all(
+            manifest.architecture[key].url.map((url) => fetchHash(url))
+        );
+
+        manifest.architecture[key]["hash"] = hashes;
+
+        // save url and hash as string if only on is passed
+        if (
+            manifest.architecture[key]["url"].length === 1 &&
+            manifest.architecture[key]["hash"].length === 1
+        ) {
+            manifest.architecture[key]["url"] =
+                manifest.architecture[key]["url"][0];
+            manifest.architecture[key]["hash"] =
+                manifest.architecture[key]["hash"][0];
+        }
+
+        console.log("writing hash for " + name, key, hashes);
+        jsonfile.writeFile(
+            filePath,
+            manifest,
+            {
+                spaces: 4,
+            },
+            (err) => {
+                if (!err) return;
+                console.error("cannot write to", filePath);
                 console.error({
                     err,
                 });
-            });
+            }
+        );
     });
 }
