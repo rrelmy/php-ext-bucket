@@ -1,0 +1,32 @@
+{
+    "homepage": "https://pecl.php.net/package/geospatial",
+    "version": "0.2.1",
+    "architecture": {
+        "64bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/geospatial/0.2.1/php_geospatial-0.2.1-7.4-ts-vc15-x64.zip",
+            "hash": "540c0a304c696847973fcdf9b63882fe711f02dcd0e15edcea0fe76e241411e5"
+        },
+        "32bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/geospatial/0.2.1/php_geospatial-0.2.1-7.4-ts-vc15-x86.zip",
+            "hash": "dc4ba4319cd128c241d56f5c5ec80b9114ee8eccdaaefd121efad5ef59d8ec01"
+        }
+    },
+    "depends": [
+        "php"
+    ],
+    "post_install": "$phpconfd = \"$persist_dir\\..\\php\\cli\\conf.d\"; if((test-path $phpconfd)) { echo \"Enabling extension $(Convert-Path $phpconfd)\\geospatial.ini\"; echo \"extension=$dir\\php_geospatial.dll\" | sc \"$phpconfd\\geospatial.ini\"; echo \"Remove-Item '$(Convert-Path $phpconfd)\\geospatial.ini'\" | sc \"$dir\\uninstall.ps1\" } else { write-host -f yellow \"PHP was not installed through scoop, you have to activate php_geospatial.dll manually!\" }",
+    "checkver": "geospatial/([\\d.]+)/windows",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/geospatial/$version/php_geospatial-$version-7.4-ts-vc15-x64.zip"
+            },
+            "32bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/geospatial/$version/php_geospatial-$version-7.4-ts-vc15-x86.zip"
+            }
+        }
+    },
+    "uninstaller": {
+        "file": "uninstall.ps1"
+    }
+}

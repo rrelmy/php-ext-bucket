@@ -1,0 +1,32 @@
+{
+    "homepage": "https://pecl.php.net/package/raphf",
+    "version": "2.0.1",
+    "architecture": {
+        "64bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/raphf/2.0.1/php_raphf-2.0.1-7.4-ts-vc15-x64.zip",
+            "hash": "b55b1e811bdb33cf4301e1dc631eee6f1ddb0fe9f00deba8920b47d257e64b6d"
+        },
+        "32bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/raphf/2.0.1/php_raphf-2.0.1-7.4-ts-vc15-x86.zip",
+            "hash": "3ee57cac36cb6d097332e7fc16491b0c21e245f70fa33b69975955d6e0733d0d"
+        }
+    },
+    "depends": [
+        "php"
+    ],
+    "post_install": "$phpconfd = \"$persist_dir\\..\\php\\cli\\conf.d\"; if((test-path $phpconfd)) { echo \"Enabling extension $(Convert-Path $phpconfd)\\raphf.ini\"; echo \"extension=$dir\\php_raphf.dll\" | sc \"$phpconfd\\raphf.ini\"; echo \"Remove-Item '$(Convert-Path $phpconfd)\\raphf.ini'\" | sc \"$dir\\uninstall.ps1\" } else { write-host -f yellow \"PHP was not installed through scoop, you have to activate php_raphf.dll manually!\" }",
+    "checkver": "raphf/([\\d.]+)/windows",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/raphf/$version/php_raphf-$version-7.4-ts-vc15-x64.zip"
+            },
+            "32bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/raphf/$version/php_raphf-$version-7.4-ts-vc15-x86.zip"
+            }
+        }
+    },
+    "uninstaller": {
+        "file": "uninstall.ps1"
+    }
+}

@@ -1,0 +1,32 @@
+{
+    "homepage": "https://pecl.php.net/package/sqlsrv",
+    "version": "5.8.1",
+    "architecture": {
+        "64bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/sqlsrv/5.8.1/php_sqlsrv-5.8.1-7.4-ts-vc15-x64.zip",
+            "hash": "2bdd1ea5f2647e0c710d3987b181c05e629a7f19ed7a087fbea44421f5362285"
+        },
+        "32bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/sqlsrv/5.8.1/php_sqlsrv-5.8.1-7.4-ts-vc15-x86.zip",
+            "hash": "5cadb58b62638a1e6fb3ca76ab9f7edcd6f70f40d80dfc5497a3d96a0171775f"
+        }
+    },
+    "depends": [
+        "php"
+    ],
+    "post_install": "$phpconfd = \"$persist_dir\\..\\php\\cli\\conf.d\"; if((test-path $phpconfd)) { echo \"Enabling extension $(Convert-Path $phpconfd)\\sqlsrv.ini\"; echo \"extension=$dir\\php_sqlsrv.dll\" | sc \"$phpconfd\\sqlsrv.ini\"; echo \"Remove-Item '$(Convert-Path $phpconfd)\\sqlsrv.ini'\" | sc \"$dir\\uninstall.ps1\" } else { write-host -f yellow \"PHP was not installed through scoop, you have to activate php_sqlsrv.dll manually!\" }",
+    "checkver": "sqlsrv/([\\d.]+)/windows",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/sqlsrv/$version/php_sqlsrv-$version-7.4-ts-vc15-x64.zip"
+            },
+            "32bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/sqlsrv/$version/php_sqlsrv-$version-7.4-ts-vc15-x86.zip"
+            }
+        }
+    },
+    "uninstaller": {
+        "file": "uninstall.ps1"
+    }
+}

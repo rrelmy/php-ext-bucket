@@ -1,0 +1,32 @@
+{
+    "homepage": "https://pecl.php.net/package/pdo_sqlsrv",
+    "version": "5.8.1",
+    "architecture": {
+        "64bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/pdo_sqlsrv/5.8.1/php_pdo_sqlsrv-5.8.1-7.4-ts-vc15-x64.zip",
+            "hash": "29466aed4df82c2a7eb3aceab520f60e0c3bfb80fa73d8de064b91c14a251089"
+        },
+        "32bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/pdo_sqlsrv/5.8.1/php_pdo_sqlsrv-5.8.1-7.4-ts-vc15-x86.zip",
+            "hash": "bff504f1d6c7cc94eccd6b883d43fdb81206bd093d21e2b9cb6346274c45d610"
+        }
+    },
+    "depends": [
+        "php"
+    ],
+    "post_install": "$phpconfd = \"$persist_dir\\..\\php\\cli\\conf.d\"; if((test-path $phpconfd)) { echo \"Enabling extension $(Convert-Path $phpconfd)\\pdo_sqlsrv.ini\"; echo \"extension=$dir\\php_pdo_sqlsrv.dll\" | sc \"$phpconfd\\pdo_sqlsrv.ini\"; echo \"Remove-Item '$(Convert-Path $phpconfd)\\pdo_sqlsrv.ini'\" | sc \"$dir\\uninstall.ps1\" } else { write-host -f yellow \"PHP was not installed through scoop, you have to activate php_pdo_sqlsrv.dll manually!\" }",
+    "checkver": "pdo_sqlsrv/([\\d.]+)/windows",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/pdo_sqlsrv/$version/php_pdo_sqlsrv-$version-7.4-ts-vc15-x64.zip"
+            },
+            "32bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/pdo_sqlsrv/$version/php_pdo_sqlsrv-$version-7.4-ts-vc15-x86.zip"
+            }
+        }
+    },
+    "uninstaller": {
+        "file": "uninstall.ps1"
+    }
+}

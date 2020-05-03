@@ -1,0 +1,32 @@
+{
+    "homepage": "https://pecl.php.net/package/msgpack",
+    "version": "2.1.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/msgpack/2.1.0/php_msgpack-2.1.0-7.4-ts-vc15-x64.zip",
+            "hash": "12875f711b0dce79c0a6ee1eaa39b95f65a7bf991cf0552b28dd01522477ef4c"
+        },
+        "32bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/msgpack/2.1.0/php_msgpack-2.1.0-7.4-ts-vc15-x86.zip",
+            "hash": "1e460c75a6327c893adbd1b83971c78144f1f65c3046ac6389545c2145fe8df7"
+        }
+    },
+    "depends": [
+        "php"
+    ],
+    "post_install": "$phpconfd = \"$persist_dir\\..\\php\\cli\\conf.d\"; if((test-path $phpconfd)) { echo \"Enabling extension $(Convert-Path $phpconfd)\\msgpack.ini\"; echo \"extension=$dir\\php_msgpack.dll\" | sc \"$phpconfd\\msgpack.ini\"; echo \"Remove-Item '$(Convert-Path $phpconfd)\\msgpack.ini'\" | sc \"$dir\\uninstall.ps1\" } else { write-host -f yellow \"PHP was not installed through scoop, you have to activate php_msgpack.dll manually!\" }",
+    "checkver": "msgpack/([\\d.]+)/windows",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/msgpack/$version/php_msgpack-$version-7.4-ts-vc15-x64.zip"
+            },
+            "32bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/msgpack/$version/php_msgpack-$version-7.4-ts-vc15-x86.zip"
+            }
+        }
+    },
+    "uninstaller": {
+        "file": "uninstall.ps1"
+    }
+}

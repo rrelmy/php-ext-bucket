@@ -1,0 +1,32 @@
+{
+    "homepage": "https://pecl.php.net/package/grpc",
+    "version": "1.28.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/grpc/1.28.0/php_grpc-1.28.0-7.4-ts-vc15-x64.zip",
+            "hash": "242e2503852f24c9e01737512544826ece8285a7ed96e123f2f376c66d62b090"
+        },
+        "32bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/grpc/1.28.0/php_grpc-1.28.0-7.4-ts-vc15-x86.zip",
+            "hash": "4023640e18a40c779443481e7df7aff8cd3f460e01b3bbad356b9bc36d3115f3"
+        }
+    },
+    "depends": [
+        "php"
+    ],
+    "post_install": "$phpconfd = \"$persist_dir\\..\\php\\cli\\conf.d\"; if((test-path $phpconfd)) { echo \"Enabling extension $(Convert-Path $phpconfd)\\grpc.ini\"; echo \"extension=$dir\\php_grpc.dll\" | sc \"$phpconfd\\grpc.ini\"; echo \"Remove-Item '$(Convert-Path $phpconfd)\\grpc.ini'\" | sc \"$dir\\uninstall.ps1\" } else { write-host -f yellow \"PHP was not installed through scoop, you have to activate php_grpc.dll manually!\" }",
+    "checkver": "grpc/([\\d.]+)/windows",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/grpc/$version/php_grpc-$version-7.4-ts-vc15-x64.zip"
+            },
+            "32bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/grpc/$version/php_grpc-$version-7.4-ts-vc15-x86.zip"
+            }
+        }
+    },
+    "uninstaller": {
+        "file": "uninstall.ps1"
+    }
+}

@@ -1,0 +1,32 @@
+{
+    "homepage": "https://pecl.php.net/package/yaconf",
+    "version": "1.1.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/yaconf/1.1.0/php_yaconf-1.1.0-7.4-ts-vc15-x64.zip",
+            "hash": "7b31985a6cadaa27872ad1f979e21575d216412f753672a35bd5a18e23d58d41"
+        },
+        "32bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/yaconf/1.1.0/php_yaconf-1.1.0-7.4-ts-vc15-x86.zip",
+            "hash": "fa01a829081a8082f547c8dc8dd41f0ca09172120a936c58927579666454d20e"
+        }
+    },
+    "depends": [
+        "php"
+    ],
+    "post_install": "$phpconfd = \"$persist_dir\\..\\php\\cli\\conf.d\"; if((test-path $phpconfd)) { echo \"Enabling extension $(Convert-Path $phpconfd)\\yaconf.ini\"; echo \"extension=$dir\\php_yaconf.dll\" | sc \"$phpconfd\\yaconf.ini\"; echo \"Remove-Item '$(Convert-Path $phpconfd)\\yaconf.ini'\" | sc \"$dir\\uninstall.ps1\" } else { write-host -f yellow \"PHP was not installed through scoop, you have to activate php_yaconf.dll manually!\" }",
+    "checkver": "yaconf/([\\d.]+)/windows",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/yaconf/$version/php_yaconf-$version-7.4-ts-vc15-x64.zip"
+            },
+            "32bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/yaconf/$version/php_yaconf-$version-7.4-ts-vc15-x86.zip"
+            }
+        }
+    },
+    "uninstaller": {
+        "file": "uninstall.ps1"
+    }
+}

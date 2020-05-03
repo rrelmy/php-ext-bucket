@@ -1,0 +1,32 @@
+{
+    "homepage": "https://pecl.php.net/package/yar",
+    "version": "2.1.2",
+    "architecture": {
+        "64bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/yar/2.1.2/php_yar-2.1.2-7.4-ts-vc15-x64.zip",
+            "hash": "901109208d20fabaaaec22d608fef4218dfad2397684e539a340087eeca69246"
+        },
+        "32bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/yar/2.1.2/php_yar-2.1.2-7.4-ts-vc15-x86.zip",
+            "hash": "037f1a845799e1a9a55f8685075d9fc2dceec20b5fa5190998b7d1d641582add"
+        }
+    },
+    "depends": [
+        "php"
+    ],
+    "post_install": "$phpconfd = \"$persist_dir\\..\\php\\cli\\conf.d\"; if((test-path $phpconfd)) { echo \"Enabling extension $(Convert-Path $phpconfd)\\yar.ini\"; echo \"extension=$dir\\php_yar.dll\" | sc \"$phpconfd\\yar.ini\"; echo \"Remove-Item '$(Convert-Path $phpconfd)\\yar.ini'\" | sc \"$dir\\uninstall.ps1\" } else { write-host -f yellow \"PHP was not installed through scoop, you have to activate php_yar.dll manually!\" }",
+    "checkver": "yar/([\\d.]+)/windows",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/yar/$version/php_yar-$version-7.4-ts-vc15-x64.zip"
+            },
+            "32bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/yar/$version/php_yar-$version-7.4-ts-vc15-x86.zip"
+            }
+        }
+    },
+    "uninstaller": {
+        "file": "uninstall.ps1"
+    }
+}

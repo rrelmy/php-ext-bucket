@@ -1,0 +1,32 @@
+{
+    "homepage": "https://pecl.php.net/package/redis",
+    "version": "5.2.1",
+    "architecture": {
+        "64bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/redis/5.2.1/php_redis-5.2.1-7.4-ts-vc15-x64.zip",
+            "hash": "5f9b38dc9492c2240222b2c06c95b008ef4244177fceba903b80bcf68259578c"
+        },
+        "32bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/redis/5.2.1/php_redis-5.2.1-7.4-ts-vc15-x86.zip",
+            "hash": "47b30127937ff7d119c49f36bbd080066f4d385f53a951267376fc4972990f11"
+        }
+    },
+    "depends": [
+        "php"
+    ],
+    "post_install": "$phpconfd = \"$persist_dir\\..\\php\\cli\\conf.d\"; if((test-path $phpconfd)) { echo \"Enabling extension $(Convert-Path $phpconfd)\\redis.ini\"; echo \"extension=$dir\\php_redis.dll\" | sc \"$phpconfd\\redis.ini\"; echo \"Remove-Item '$(Convert-Path $phpconfd)\\redis.ini'\" | sc \"$dir\\uninstall.ps1\" } else { write-host -f yellow \"PHP was not installed through scoop, you have to activate php_redis.dll manually!\" }",
+    "checkver": "redis/([\\d.]+)/windows",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/redis/$version/php_redis-$version-7.4-ts-vc15-x64.zip"
+            },
+            "32bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/redis/$version/php_redis-$version-7.4-ts-vc15-x86.zip"
+            }
+        }
+    },
+    "uninstaller": {
+        "file": "uninstall.ps1"
+    }
+}

@@ -1,0 +1,32 @@
+{
+    "homepage": "https://pecl.php.net/package/doublemetaphone",
+    "version": "1.0.1",
+    "architecture": {
+        "64bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/doublemetaphone/1.0.1/php_doublemetaphone-1.0.1-7.4-ts-vc15-x64.zip",
+            "hash": "9d7d8fbc2e9bfc9607bf53cff520fd70afe053487d34c3689ae278065b1652e7"
+        },
+        "32bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/doublemetaphone/1.0.1/php_doublemetaphone-1.0.1-7.4-ts-vc15-x86.zip",
+            "hash": "98d22de5a65dd4a84389bb2135e10678164708f35f4f15a911b7b36d324265c6"
+        }
+    },
+    "depends": [
+        "php"
+    ],
+    "post_install": "$phpconfd = \"$persist_dir\\..\\php\\cli\\conf.d\"; if((test-path $phpconfd)) { echo \"Enabling extension $(Convert-Path $phpconfd)\\doublemetaphone.ini\"; echo \"extension=$dir\\php_doublemetaphone.dll\" | sc \"$phpconfd\\doublemetaphone.ini\"; echo \"Remove-Item '$(Convert-Path $phpconfd)\\doublemetaphone.ini'\" | sc \"$dir\\uninstall.ps1\" } else { write-host -f yellow \"PHP was not installed through scoop, you have to activate php_doublemetaphone.dll manually!\" }",
+    "checkver": "doublemetaphone/([\\d.]+)/windows",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/doublemetaphone/$version/php_doublemetaphone-$version-7.4-ts-vc15-x64.zip"
+            },
+            "32bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/doublemetaphone/$version/php_doublemetaphone-$version-7.4-ts-vc15-x86.zip"
+            }
+        }
+    },
+    "uninstaller": {
+        "file": "uninstall.ps1"
+    }
+}

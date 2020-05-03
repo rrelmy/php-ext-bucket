@@ -1,0 +1,32 @@
+{
+    "homepage": "https://pecl.php.net/package/memcache",
+    "version": "4.0.5.2",
+    "architecture": {
+        "64bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/memcache/4.0.5.2/php_memcache-4.0.5.2-7.4-ts-vc15-x64.zip",
+            "hash": "7c3248a6cb4b85df51ea942c46596147ec5860a8ef5567ee81fa473d7c29ce4c"
+        },
+        "32bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/memcache/4.0.5.2/php_memcache-4.0.5.2-7.4-ts-vc15-x86.zip",
+            "hash": "6cda12d2f39a616c5abfa716647b3be144dba1c4f6ae3d7e3d0c44e6b99446c8"
+        }
+    },
+    "depends": [
+        "php"
+    ],
+    "post_install": "$phpconfd = \"$persist_dir\\..\\php\\cli\\conf.d\"; if((test-path $phpconfd)) { echo \"Enabling extension $(Convert-Path $phpconfd)\\memcache.ini\"; echo \"extension=$dir\\php_memcache.dll\" | sc \"$phpconfd\\memcache.ini\"; echo \"Remove-Item '$(Convert-Path $phpconfd)\\memcache.ini'\" | sc \"$dir\\uninstall.ps1\" } else { write-host -f yellow \"PHP was not installed through scoop, you have to activate php_memcache.dll manually!\" }",
+    "checkver": "memcache/([\\d.]+)/windows",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/memcache/$version/php_memcache-$version-7.4-ts-vc15-x64.zip"
+            },
+            "32bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/memcache/$version/php_memcache-$version-7.4-ts-vc15-x86.zip"
+            }
+        }
+    },
+    "uninstaller": {
+        "file": "uninstall.ps1"
+    }
+}

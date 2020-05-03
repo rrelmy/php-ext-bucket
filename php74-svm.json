@@ -1,0 +1,32 @@
+{
+    "homepage": "https://pecl.php.net/package/svm",
+    "version": "0.2.3",
+    "architecture": {
+        "64bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/svm/0.2.3/php_svm-0.2.3-7.4-ts-vc15-x64.zip",
+            "hash": "8ccd0de5c04235bed0e618871a85524ae279dfd3f8c52a841dc0102a4de2d433"
+        },
+        "32bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/svm/0.2.3/php_svm-0.2.3-7.4-ts-vc15-x86.zip",
+            "hash": "55fdabf615a7b7dd3aa167289fc843e35d80819a9a58a5ff4c0667845bed9c37"
+        }
+    },
+    "depends": [
+        "php"
+    ],
+    "post_install": "$phpconfd = \"$persist_dir\\..\\php\\cli\\conf.d\"; if((test-path $phpconfd)) { echo \"Enabling extension $(Convert-Path $phpconfd)\\svm.ini\"; echo \"extension=$dir\\php_svm.dll\" | sc \"$phpconfd\\svm.ini\"; echo \"Remove-Item '$(Convert-Path $phpconfd)\\svm.ini'\" | sc \"$dir\\uninstall.ps1\" } else { write-host -f yellow \"PHP was not installed through scoop, you have to activate php_svm.dll manually!\" }",
+    "checkver": "svm/([\\d.]+)/windows",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/svm/$version/php_svm-$version-7.4-ts-vc15-x64.zip"
+            },
+            "32bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/svm/$version/php_svm-$version-7.4-ts-vc15-x86.zip"
+            }
+        }
+    },
+    "uninstaller": {
+        "file": "uninstall.ps1"
+    }
+}

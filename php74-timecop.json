@@ -1,0 +1,32 @@
+{
+    "homepage": "https://pecl.php.net/package/timecop",
+    "version": "1.2.10",
+    "architecture": {
+        "64bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/timecop/1.2.10/php_timecop-1.2.10-7.4-ts-vc15-x64.zip",
+            "hash": "dbe67281c3dd313a29714609081f63b33aa0921c979aca0d85d7c3e867132168"
+        },
+        "32bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/timecop/1.2.10/php_timecop-1.2.10-7.4-ts-vc15-x86.zip",
+            "hash": "f6e5e8228e688a2f699b26148824db2dd8451d002148976d5eaa4d799105a8be"
+        }
+    },
+    "depends": [
+        "php"
+    ],
+    "post_install": "$phpconfd = \"$persist_dir\\..\\php\\cli\\conf.d\"; if((test-path $phpconfd)) { echo \"Enabling extension $(Convert-Path $phpconfd)\\timecop.ini\"; echo \"extension=$dir\\php_timecop.dll\" | sc \"$phpconfd\\timecop.ini\"; echo \"Remove-Item '$(Convert-Path $phpconfd)\\timecop.ini'\" | sc \"$dir\\uninstall.ps1\" } else { write-host -f yellow \"PHP was not installed through scoop, you have to activate php_timecop.dll manually!\" }",
+    "checkver": "timecop/([\\d.]+)/windows",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/timecop/$version/php_timecop-$version-7.4-ts-vc15-x64.zip"
+            },
+            "32bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/timecop/$version/php_timecop-$version-7.4-ts-vc15-x86.zip"
+            }
+        }
+    },
+    "uninstaller": {
+        "file": "uninstall.ps1"
+    }
+}

@@ -1,0 +1,32 @@
+{
+    "homepage": "https://pecl.php.net/package/imagick",
+    "version": "3.4.4",
+    "architecture": {
+        "64bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/imagick/3.4.4/php_imagick-3.4.4-7.4-ts-vc15-x64.zip",
+            "hash": "8279864f0bd7af06ebb3e870723a28f1f9f893624b64741828544e354323e600"
+        },
+        "32bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/imagick/3.4.4/php_imagick-3.4.4-7.4-ts-vc15-x86.zip",
+            "hash": "8c26e3e3986a74219cfca12a1297baa915dbfbbcbc3ba82df5f228943946b5d7"
+        }
+    },
+    "depends": [
+        "php"
+    ],
+    "post_install": "$phpconfd = \"$persist_dir\\..\\php\\cli\\conf.d\"; if((test-path $phpconfd)) { echo \"Enabling extension $(Convert-Path $phpconfd)\\imagick.ini\"; echo \"extension=$dir\\php_imagick.dll\" | sc \"$phpconfd\\imagick.ini\"; echo \"Remove-Item '$(Convert-Path $phpconfd)\\imagick.ini'\" | sc \"$dir\\uninstall.ps1\" } else { write-host -f yellow \"PHP was not installed through scoop, you have to activate php_imagick.dll manually!\" }",
+    "checkver": "imagick/([\\d.]+)/windows",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/imagick/$version/php_imagick-$version-7.4-ts-vc15-x64.zip"
+            },
+            "32bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/imagick/$version/php_imagick-$version-7.4-ts-vc15-x86.zip"
+            }
+        }
+    },
+    "uninstaller": {
+        "file": "uninstall.ps1"
+    }
+}

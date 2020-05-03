@@ -1,0 +1,32 @@
+{
+    "homepage": "https://pecl.php.net/package/lua",
+    "version": "2.0.7",
+    "architecture": {
+        "64bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/lua/2.0.7/php_lua-2.0.7-7.4-ts-vc15-x64.zip",
+            "hash": "448475a9322a8f9baf38c359b589f9dcc9be687107304d947c3b0b35e60862b6"
+        },
+        "32bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/lua/2.0.7/php_lua-2.0.7-7.4-ts-vc15-x86.zip",
+            "hash": "c41542a66db3a31dfe1cf96e24a009963a4d58258a14a4c4469151d0c2f55274"
+        }
+    },
+    "depends": [
+        "php"
+    ],
+    "post_install": "$phpconfd = \"$persist_dir\\..\\php\\cli\\conf.d\"; if((test-path $phpconfd)) { echo \"Enabling extension $(Convert-Path $phpconfd)\\lua.ini\"; echo \"extension=$dir\\php_lua.dll\" | sc \"$phpconfd\\lua.ini\"; echo \"Remove-Item '$(Convert-Path $phpconfd)\\lua.ini'\" | sc \"$dir\\uninstall.ps1\" } else { write-host -f yellow \"PHP was not installed through scoop, you have to activate php_lua.dll manually!\" }",
+    "checkver": "lua/([\\d.]+)/windows",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/lua/$version/php_lua-$version-7.4-ts-vc15-x64.zip"
+            },
+            "32bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/lua/$version/php_lua-$version-7.4-ts-vc15-x86.zip"
+            }
+        }
+    },
+    "uninstaller": {
+        "file": "uninstall.ps1"
+    }
+}

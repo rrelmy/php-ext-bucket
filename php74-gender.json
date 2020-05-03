@@ -1,0 +1,32 @@
+{
+    "homepage": "https://pecl.php.net/package/gender",
+    "version": "1.1.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/gender/1.1.0/php_gender-1.1.0-7.4-ts-vc15-x64.zip",
+            "hash": "5f3f621a32160bf06c5f8e4f6bc53e2cf8b5c9b6a89b53a7491fd4c034a078f0"
+        },
+        "32bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/gender/1.1.0/php_gender-1.1.0-7.4-ts-vc15-x86.zip",
+            "hash": "f833885bcfb1d8452664e217d3d96835913510dadf2bfcdb1d9bb6e829e54987"
+        }
+    },
+    "depends": [
+        "php"
+    ],
+    "post_install": "$phpconfd = \"$persist_dir\\..\\php\\cli\\conf.d\"; if((test-path $phpconfd)) { echo \"Enabling extension $(Convert-Path $phpconfd)\\gender.ini\"; echo \"extension=$dir\\php_gender.dll\" | sc \"$phpconfd\\gender.ini\"; echo \"Remove-Item '$(Convert-Path $phpconfd)\\gender.ini'\" | sc \"$dir\\uninstall.ps1\" } else { write-host -f yellow \"PHP was not installed through scoop, you have to activate php_gender.dll manually!\" }",
+    "checkver": "gender/([\\d.]+)/windows",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/gender/$version/php_gender-$version-7.4-ts-vc15-x64.zip"
+            },
+            "32bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/gender/$version/php_gender-$version-7.4-ts-vc15-x86.zip"
+            }
+        }
+    },
+    "uninstaller": {
+        "file": "uninstall.ps1"
+    }
+}

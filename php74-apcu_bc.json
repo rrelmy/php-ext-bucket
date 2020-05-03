@@ -1,0 +1,32 @@
+{
+    "homepage": "https://pecl.php.net/package/apcu_bc",
+    "version": "1.0.5",
+    "architecture": {
+        "64bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/apcu_bc/1.0.5/php_apcu_bc-1.0.5-7.4-ts-vc15-x64.zip",
+            "hash": "a8582ecce7b4a5a84aa4723ca170090dfb7f2e54b91bf3502d66d3733e4cb428"
+        },
+        "32bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/apcu_bc/1.0.5/php_apcu_bc-1.0.5-7.4-ts-vc15-x86.zip",
+            "hash": "198e101e65e6c533b8e26999e6fec616bc73306fa90a7d25a0c1b4816e748612"
+        }
+    },
+    "depends": [
+        "php"
+    ],
+    "post_install": "$phpconfd = \"$persist_dir\\..\\php\\cli\\conf.d\"; if((test-path $phpconfd)) { echo \"Enabling extension $(Convert-Path $phpconfd)\\apcu_bc.ini\"; echo \"extension=$dir\\php_apcu_bc.dll\" | sc \"$phpconfd\\apcu_bc.ini\"; echo \"Remove-Item '$(Convert-Path $phpconfd)\\apcu_bc.ini'\" | sc \"$dir\\uninstall.ps1\" } else { write-host -f yellow \"PHP was not installed through scoop, you have to activate php_apcu_bc.dll manually!\" }",
+    "checkver": "apcu_bc/([\\d.]+)/windows",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/apcu_bc/$version/php_apcu_bc-$version-7.4-ts-vc15-x64.zip"
+            },
+            "32bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/apcu_bc/$version/php_apcu_bc-$version-7.4-ts-vc15-x86.zip"
+            }
+        }
+    },
+    "uninstaller": {
+        "file": "uninstall.ps1"
+    }
+}

@@ -1,0 +1,32 @@
+{
+    "homepage": "https://pecl.php.net/package/ssdeep",
+    "version": "1.1.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/ssdeep/1.1.0/php_ssdeep-1.1.0-7.4-ts-vc15-x64.zip",
+            "hash": "e7953269fbff1c59cea2279362458238b943d4fa4a9eea53223764973623d0e0"
+        },
+        "32bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/ssdeep/1.1.0/php_ssdeep-1.1.0-7.4-ts-vc15-x86.zip",
+            "hash": "1ddd7bfe5d5405b7eefbfc1330eee145f0e5b89ecfa6c8c3f4ea78c7869fe295"
+        }
+    },
+    "depends": [
+        "php"
+    ],
+    "post_install": "$phpconfd = \"$persist_dir\\..\\php\\cli\\conf.d\"; if((test-path $phpconfd)) { echo \"Enabling extension $(Convert-Path $phpconfd)\\ssdeep.ini\"; echo \"extension=$dir\\php_ssdeep.dll\" | sc \"$phpconfd\\ssdeep.ini\"; echo \"Remove-Item '$(Convert-Path $phpconfd)\\ssdeep.ini'\" | sc \"$dir\\uninstall.ps1\" } else { write-host -f yellow \"PHP was not installed through scoop, you have to activate php_ssdeep.dll manually!\" }",
+    "checkver": "ssdeep/([\\d.]+)/windows",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/ssdeep/$version/php_ssdeep-$version-7.4-ts-vc15-x64.zip"
+            },
+            "32bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/ssdeep/$version/php_ssdeep-$version-7.4-ts-vc15-x86.zip"
+            }
+        }
+    },
+    "uninstaller": {
+        "file": "uninstall.ps1"
+    }
+}

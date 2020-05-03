@@ -1,0 +1,32 @@
+{
+    "homepage": "https://pecl.php.net/package/xxtea",
+    "version": "1.0.11",
+    "architecture": {
+        "64bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/xxtea/1.0.11/php_xxtea-1.0.11-7.4-ts-vc15-x64.zip",
+            "hash": "4c6810bcfb5c0739a2d16b4526281daf87ae6c6907afe2bf3209e84bad8c8c5a"
+        },
+        "32bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/xxtea/1.0.11/php_xxtea-1.0.11-7.4-ts-vc15-x86.zip",
+            "hash": "36c3f64110b6067361c5d16f4ec42c43aa9bc56fff73c3cfc1cd6f8290d0920c"
+        }
+    },
+    "depends": [
+        "php"
+    ],
+    "post_install": "$phpconfd = \"$persist_dir\\..\\php\\cli\\conf.d\"; if((test-path $phpconfd)) { echo \"Enabling extension $(Convert-Path $phpconfd)\\xxtea.ini\"; echo \"extension=$dir\\php_xxtea.dll\" | sc \"$phpconfd\\xxtea.ini\"; echo \"Remove-Item '$(Convert-Path $phpconfd)\\xxtea.ini'\" | sc \"$dir\\uninstall.ps1\" } else { write-host -f yellow \"PHP was not installed through scoop, you have to activate php_xxtea.dll manually!\" }",
+    "checkver": "xxtea/([\\d.]+)/windows",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/xxtea/$version/php_xxtea-$version-7.4-ts-vc15-x64.zip"
+            },
+            "32bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/xxtea/$version/php_xxtea-$version-7.4-ts-vc15-x86.zip"
+            }
+        }
+    },
+    "uninstaller": {
+        "file": "uninstall.ps1"
+    }
+}

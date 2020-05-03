@@ -1,0 +1,32 @@
+{
+    "homepage": "https://pecl.php.net/package/translit",
+    "version": "0.7.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/translit/0.7.0/php_translit-0.7.0-7.4-ts-vc15-x64.zip",
+            "hash": "881587a7d96173f0f4ebe6d57d0f528c594e456508ba2cba822ba57c2d1f981f"
+        },
+        "32bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/translit/0.7.0/php_translit-0.7.0-7.4-ts-vc15-x86.zip",
+            "hash": "b7416c2a56a172d69d1fa72a5bd8806c152c0ae759ea70709c030f859abbc5d5"
+        }
+    },
+    "depends": [
+        "php"
+    ],
+    "post_install": "$phpconfd = \"$persist_dir\\..\\php\\cli\\conf.d\"; if((test-path $phpconfd)) { echo \"Enabling extension $(Convert-Path $phpconfd)\\translit.ini\"; echo \"extension=$dir\\php_translit.dll\" | sc \"$phpconfd\\translit.ini\"; echo \"Remove-Item '$(Convert-Path $phpconfd)\\translit.ini'\" | sc \"$dir\\uninstall.ps1\" } else { write-host -f yellow \"PHP was not installed through scoop, you have to activate php_translit.dll manually!\" }",
+    "checkver": "translit/([\\d.]+)/windows",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/translit/$version/php_translit-$version-7.4-ts-vc15-x64.zip"
+            },
+            "32bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/translit/$version/php_translit-$version-7.4-ts-vc15-x86.zip"
+            }
+        }
+    },
+    "uninstaller": {
+        "file": "uninstall.ps1"
+    }
+}

@@ -1,0 +1,32 @@
+{
+    "homepage": "https://pecl.php.net/package/jsmin",
+    "version": "3.0.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/jsmin/3.0.0/php_jsmin-3.0.0-7.4-ts-vc15-x64.zip",
+            "hash": "67ae0b4ac47ed8bb2895f5669ce009325d56f4e35dc93f9160c0731fca797f24"
+        },
+        "32bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/jsmin/3.0.0/php_jsmin-3.0.0-7.4-ts-vc15-x86.zip",
+            "hash": "8e11e1679c30bc9af1233661cdf0acbbc28bc28e0dc94272d7096b88933d9d2a"
+        }
+    },
+    "depends": [
+        "php"
+    ],
+    "post_install": "$phpconfd = \"$persist_dir\\..\\php\\cli\\conf.d\"; if((test-path $phpconfd)) { echo \"Enabling extension $(Convert-Path $phpconfd)\\jsmin.ini\"; echo \"extension=$dir\\php_jsmin.dll\" | sc \"$phpconfd\\jsmin.ini\"; echo \"Remove-Item '$(Convert-Path $phpconfd)\\jsmin.ini'\" | sc \"$dir\\uninstall.ps1\" } else { write-host -f yellow \"PHP was not installed through scoop, you have to activate php_jsmin.dll manually!\" }",
+    "checkver": "jsmin/([\\d.]+)/windows",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/jsmin/$version/php_jsmin-$version-7.4-ts-vc15-x64.zip"
+            },
+            "32bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/jsmin/$version/php_jsmin-$version-7.4-ts-vc15-x86.zip"
+            }
+        }
+    },
+    "uninstaller": {
+        "file": "uninstall.ps1"
+    }
+}

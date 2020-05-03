@@ -1,0 +1,32 @@
+{
+    "homepage": "https://pecl.php.net/package/scrypt",
+    "version": "1.4.2",
+    "architecture": {
+        "64bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/scrypt/1.4.2/php_scrypt-1.4.2-7.4-ts-vc15-x64.zip",
+            "hash": "afa9a444d3d99c772d823d1f3b414fb6a76add60d6bbf1ec49c180c642c52f05"
+        },
+        "32bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/scrypt/1.4.2/php_scrypt-1.4.2-7.4-ts-vc15-x86.zip",
+            "hash": "95a07e1fdacb473d7350020eb81977a99892c01297650da07253694a068f56ed"
+        }
+    },
+    "depends": [
+        "php"
+    ],
+    "post_install": "$phpconfd = \"$persist_dir\\..\\php\\cli\\conf.d\"; if((test-path $phpconfd)) { echo \"Enabling extension $(Convert-Path $phpconfd)\\scrypt.ini\"; echo \"extension=$dir\\php_scrypt.dll\" | sc \"$phpconfd\\scrypt.ini\"; echo \"Remove-Item '$(Convert-Path $phpconfd)\\scrypt.ini'\" | sc \"$dir\\uninstall.ps1\" } else { write-host -f yellow \"PHP was not installed through scoop, you have to activate php_scrypt.dll manually!\" }",
+    "checkver": "scrypt/([\\d.]+)/windows",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/scrypt/$version/php_scrypt-$version-7.4-ts-vc15-x64.zip"
+            },
+            "32bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/scrypt/$version/php_scrypt-$version-7.4-ts-vc15-x86.zip"
+            }
+        }
+    },
+    "uninstaller": {
+        "file": "uninstall.ps1"
+    }
+}

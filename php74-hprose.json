@@ -1,0 +1,32 @@
+{
+    "homepage": "https://pecl.php.net/package/hprose",
+    "version": "1.8.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/hprose/1.8.0/php_hprose-1.8.0-7.4-ts-vc15-x64.zip",
+            "hash": "96f3ef911b6543745dbb7e3054899d141f1af5deae6d87241f7903d9a793b35e"
+        },
+        "32bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/hprose/1.8.0/php_hprose-1.8.0-7.4-ts-vc15-x86.zip",
+            "hash": "f9913948f9899db804a0e888573b605c2e9a4f063520c8e394ae0e40e82038d9"
+        }
+    },
+    "depends": [
+        "php"
+    ],
+    "post_install": "$phpconfd = \"$persist_dir\\..\\php\\cli\\conf.d\"; if((test-path $phpconfd)) { echo \"Enabling extension $(Convert-Path $phpconfd)\\hprose.ini\"; echo \"extension=$dir\\php_hprose.dll\" | sc \"$phpconfd\\hprose.ini\"; echo \"Remove-Item '$(Convert-Path $phpconfd)\\hprose.ini'\" | sc \"$dir\\uninstall.ps1\" } else { write-host -f yellow \"PHP was not installed through scoop, you have to activate php_hprose.dll manually!\" }",
+    "checkver": "hprose/([\\d.]+)/windows",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/hprose/$version/php_hprose-$version-7.4-ts-vc15-x64.zip"
+            },
+            "32bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/hprose/$version/php_hprose-$version-7.4-ts-vc15-x86.zip"
+            }
+        }
+    },
+    "uninstaller": {
+        "file": "uninstall.ps1"
+    }
+}

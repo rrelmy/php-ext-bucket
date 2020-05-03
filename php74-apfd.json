@@ -1,0 +1,32 @@
+{
+    "homepage": "https://pecl.php.net/package/apfd",
+    "version": "1.0.1",
+    "architecture": {
+        "64bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/apfd/1.0.1/php_apfd-1.0.1-7.4-ts-vc15-x64.zip",
+            "hash": "3ee34efca520c91ea99ef7d3e313b1b94211aa13b6055fbc73cec4f3e6e90cb7"
+        },
+        "32bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/apfd/1.0.1/php_apfd-1.0.1-7.4-ts-vc15-x86.zip",
+            "hash": "6ac23efc0e879dea9df91e0dd057a91781783884759903407684790d2fe3e447"
+        }
+    },
+    "depends": [
+        "php"
+    ],
+    "post_install": "$phpconfd = \"$persist_dir\\..\\php\\cli\\conf.d\"; if((test-path $phpconfd)) { echo \"Enabling extension $(Convert-Path $phpconfd)\\apfd.ini\"; echo \"extension=$dir\\php_apfd.dll\" | sc \"$phpconfd\\apfd.ini\"; echo \"Remove-Item '$(Convert-Path $phpconfd)\\apfd.ini'\" | sc \"$dir\\uninstall.ps1\" } else { write-host -f yellow \"PHP was not installed through scoop, you have to activate php_apfd.dll manually!\" }",
+    "checkver": "apfd/([\\d.]+)/windows",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/apfd/$version/php_apfd-$version-7.4-ts-vc15-x64.zip"
+            },
+            "32bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/apfd/$version/php_apfd-$version-7.4-ts-vc15-x86.zip"
+            }
+        }
+    },
+    "uninstaller": {
+        "file": "uninstall.ps1"
+    }
+}

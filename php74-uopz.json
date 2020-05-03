@@ -1,0 +1,32 @@
+{
+    "homepage": "https://pecl.php.net/package/uopz",
+    "version": "6.1.1",
+    "architecture": {
+        "64bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/uopz/6.1.1/php_uopz-6.1.1-7.4-ts-vc15-x64.zip",
+            "hash": "66d7767c54ffa10b8c649067424eaf27762d4eced56259f1ac6bda45bd758bda"
+        },
+        "32bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/uopz/6.1.1/php_uopz-6.1.1-7.4-ts-vc15-x86.zip",
+            "hash": "3ee45b89893e06602960241236982014568bbddbdabb78237e07b960349945ce"
+        }
+    },
+    "depends": [
+        "php"
+    ],
+    "post_install": "$phpconfd = \"$persist_dir\\..\\php\\cli\\conf.d\"; if((test-path $phpconfd)) { echo \"Enabling extension $(Convert-Path $phpconfd)\\uopz.ini\"; echo \"extension=$dir\\php_uopz.dll\" | sc \"$phpconfd\\uopz.ini\"; echo \"Remove-Item '$(Convert-Path $phpconfd)\\uopz.ini'\" | sc \"$dir\\uninstall.ps1\" } else { write-host -f yellow \"PHP was not installed through scoop, you have to activate php_uopz.dll manually!\" }",
+    "checkver": "uopz/([\\d.]+)/windows",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/uopz/$version/php_uopz-$version-7.4-ts-vc15-x64.zip"
+            },
+            "32bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/uopz/$version/php_uopz-$version-7.4-ts-vc15-x86.zip"
+            }
+        }
+    },
+    "uninstaller": {
+        "file": "uninstall.ps1"
+    }
+}
