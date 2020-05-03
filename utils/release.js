@@ -6,13 +6,15 @@ const fs = require("fs");
 const jsonfile = require("jsonfile");
 
 const phpVersion = Number(process.argv[2]);
-if (!phpVersion || phpVersion < 10 || phpVersion > 100) {
+if (!phpVersion || phpVersion < 5 || phpVersion > 10) {
     console.log(
-        "php version [1st argument] should be a number like 72 yours is",
-        phpVersion || "none"
+        "php version [1st argument] should be a number like 7.4, yours is",
+        phpVersion || "undefined"
     );
     process.exit();
 }
+
+const phpVersionNumeric = phpVersion * 10;
 
 fs.readdir("./nohash", (err, list) => {
     list.forEach(releaseIt);
@@ -40,7 +42,7 @@ function releaseIt(file) {
 
         fs.renameSync(
             filePath,
-            `../php${phpVersion}-${name.toLowerCase()}.json`
+            `../php${phpVersionNumeric}-${name.toLowerCase()}.json`
         );
     });
 }

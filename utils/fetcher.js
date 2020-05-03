@@ -7,6 +7,15 @@ const cheerio = require("cheerio");
 const tempDirectory = "./nohash";
 const statURL = "https://pecl.php.net/package-stats.php";
 
+const phpVersion = Number(process.argv[2]);
+if (!phpVersion || phpVersion < 5 || phpVersion > 10) {
+    console.log(
+        "php version [1st argument] should be a number like 7.4, yours is",
+        phpVersion || "undefined"
+    );
+    process.exit();
+}
+
 if (!fs.existsSync(tempDirectory)) {
     fs.mkdirSync(tempDirectory);
 }
@@ -51,7 +60,7 @@ request(statURL, (err, response, body) => {
                             }
                             // replace package name
                             let template = fs
-                                .readFileSync("./template")
+                                .readFileSync("./template.json")
                                 .toString();
                             template = template.replace(
                                 /__package__/g,
@@ -61,6 +70,11 @@ request(statURL, (err, response, body) => {
                             template = template.replace(
                                 /__version__/g,
                                 version[1]
+                            );
+                            // replace php version
+                            template = template.replace(
+                                /__phpversion__/g,
+                                phpVersion
                             );
                             fs.writeFileSync(packageSaveAs, template);
                             console.log(
@@ -75,7 +89,7 @@ request(statURL, (err, response, body) => {
 });
 
 function getDownloadURL(package, version, arc) {
-    return `https://windows.php.net/downloads/pecl/releases/${package}/${version}/php_${package}-${version}-7.4-ts-vc15-x${arc}.zip`;
+    return `https://windows.php.net/downloads/pecl/releases/${package}/${version}/php_${package}-${version}-${phpVersion}-ts-vc15-x${arc}.zip`;
 }
 
 // let uri;

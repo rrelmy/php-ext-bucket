@@ -2,7 +2,7 @@
 
 ## 1. Fetch the list of extensions and prepare files
 
-    node fetcher.js
+    node fetcher.js 7.4
 
 ## 2. Hash all the architectures
 
@@ -13,4 +13,4 @@
 
 Just moves the prepared manifests from to the root
 
-    node release.js 72
+    node release.js 7.4
