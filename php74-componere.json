@@ -1,0 +1,32 @@
+{
+    "homepage": "https://pecl.php.net/package/componere",
+    "version": "3.1.1",
+    "architecture": {
+        "64bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/componere/3.1.1/php_componere-3.1.1-7.4-ts-vc15-x64.zip",
+            "hash": "70da10de7efd68824bed07c04c069cba0e5e10112b3b01cac918f6de4de3dec7"
+        },
+        "32bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/componere/3.1.1/php_componere-3.1.1-7.4-ts-vc15-x86.zip",
+            "hash": "8063be2cf95c34aeca823de865e31f517e5b342404fa26ec7ac30b8657b5b55c"
+        }
+    },
+    "depends": [
+        "php"
+    ],
+    "post_install": "$phpconfd = \"$persist_dir\\..\\php\\cli\\conf.d\"; if((test-path $phpconfd)) { echo \"Enabling extension $(Convert-Path $phpconfd)\\componere.ini\"; echo \"extension=$dir\\php_componere.dll\" | sc \"$phpconfd\\componere.ini\"; echo \"Remove-Item '$(Convert-Path $phpconfd)\\componere.ini'\" | sc \"$dir\\uninstall.ps1\" } else { write-host -f yellow \"PHP was not installed through scoop, you have to activate php_componere.dll manually!\" }",
+    "checkver": "componere/([\\d.]+)/windows",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/componere/$version/php_componere-$version-7.4-ts-vc15-x64.zip"
+            },
+            "32bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/componere/$version/php_componere-$version-7.4-ts-vc15-x86.zip"
+            }
+        }
+    },
+    "uninstaller": {
+        "file": "uninstall.ps1"
+    }
+}

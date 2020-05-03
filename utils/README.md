@@ -10,6 +10,7 @@
     node hash.js 64
 
 ## 3. Release
+
 Just moves the prepared manifests from to the root
 
     node release.js 72

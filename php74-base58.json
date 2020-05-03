@@ -1,0 +1,32 @@
+{
+    "homepage": "https://pecl.php.net/package/base58",
+    "version": "0.1.4",
+    "architecture": {
+        "64bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/base58/0.1.4/php_base58-0.1.4-7.4-ts-vc15-x64.zip",
+            "hash": "76e83916be752fb6d2c21b24f5a23f4329a1252c9ed487b0471ebb23da46c560"
+        },
+        "32bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/base58/0.1.4/php_base58-0.1.4-7.4-ts-vc15-x86.zip",
+            "hash": "4e3b9f670d528740af8e490c6c1ac9c62a1f280649c63ee31a54458423bfc71e"
+        }
+    },
+    "depends": [
+        "php"
+    ],
+    "post_install": "$phpconfd = \"$persist_dir\\..\\php\\cli\\conf.d\"; if((test-path $phpconfd)) { echo \"Enabling extension $(Convert-Path $phpconfd)\\base58.ini\"; echo \"extension=$dir\\php_base58.dll\" | sc \"$phpconfd\\base58.ini\"; echo \"Remove-Item '$(Convert-Path $phpconfd)\\base58.ini'\" | sc \"$dir\\uninstall.ps1\" } else { write-host -f yellow \"PHP was not installed through scoop, you have to activate php_base58.dll manually!\" }",
+    "checkver": "base58/([\\d.]+)/windows",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/base58/$version/php_base58-$version-7.4-ts-vc15-x64.zip"
+            },
+            "32bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/base58/$version/php_base58-$version-7.4-ts-vc15-x86.zip"
+            }
+        }
+    },
+    "uninstaller": {
+        "file": "uninstall.ps1"
+    }
+}
