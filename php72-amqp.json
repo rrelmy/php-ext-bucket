@@ -1,0 +1,32 @@
+{
+    "homepage": "https://pecl.php.net/package/amqp",
+    "version": "1.10.2",
+    "architecture": {
+        "64bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/amqp/1.10.2/php_amqp-1.10.2-7.2-ts-vc15-x64.zip",
+            "hash": "48bd3b2aa9e6f4c516535c605c91d9bf0e8ec8480ada547a5fa774123dc0231b"
+        },
+        "32bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/amqp/1.10.2/php_amqp-1.10.2-7.2-ts-vc15-x86.zip",
+            "hash": "96dea794077c905108d6ee51e5abbf895022a0c1576e96608f41bdaf3aa2ead2"
+        }
+    },
+    "depends": [
+        "php"
+    ],
+    "post_install": "$phpconfd = \"$persist_dir\\..\\php\\cli\\conf.d\"; if((test-path $phpconfd)) { echo \"Enabling extension $(Convert-Path $phpconfd)\\amqp.ini\"; echo \"extension=$dir\\php_amqp.dll\" | sc \"$phpconfd\\amqp.ini\"; echo \"Remove-Item '$(Convert-Path $phpconfd)\\amqp.ini'\" | sc \"$dir\\uninstall.ps1\" } else { write-host -f yellow \"PHP was not installed through scoop, you have to activate php_amqp.dll manually!\" }",
+    "checkver": "amqp/([\\d.]+)/windows",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/amqp/$version/php_amqp-$version-7.2-ts-vc15-x64.zip"
+            },
+            "32bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/amqp/$version/php_amqp-$version-7.2-ts-vc15-x86.zip"
+            }
+        }
+    },
+    "uninstaller": {
+        "file": "uninstall.ps1"
+    }
+}

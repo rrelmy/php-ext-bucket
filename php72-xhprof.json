@@ -1,0 +1,32 @@
+{
+    "homepage": "https://pecl.php.net/package/xhprof",
+    "version": "2.2.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/xhprof/2.2.0/php_xhprof-2.2.0-7.2-ts-vc15-x64.zip",
+            "hash": "c67407196a51c6a34582cc65b1b0f28f5914532b583bb4eec0d6ae295d3541ae"
+        },
+        "32bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/xhprof/2.2.0/php_xhprof-2.2.0-7.2-ts-vc15-x86.zip",
+            "hash": "2f1847d0a3473da5935de0493204e57f820e9c8ae8748f59801e2cf274d007fc"
+        }
+    },
+    "depends": [
+        "php"
+    ],
+    "post_install": "$phpconfd = \"$persist_dir\\..\\php\\cli\\conf.d\"; if((test-path $phpconfd)) { echo \"Enabling extension $(Convert-Path $phpconfd)\\xhprof.ini\"; echo \"extension=$dir\\php_xhprof.dll\" | sc \"$phpconfd\\xhprof.ini\"; echo \"Remove-Item '$(Convert-Path $phpconfd)\\xhprof.ini'\" | sc \"$dir\\uninstall.ps1\" } else { write-host -f yellow \"PHP was not installed through scoop, you have to activate php_xhprof.dll manually!\" }",
+    "checkver": "xhprof/([\\d.]+)/windows",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/xhprof/$version/php_xhprof-$version-7.2-ts-vc15-x64.zip"
+            },
+            "32bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/xhprof/$version/php_xhprof-$version-7.2-ts-vc15-x86.zip"
+            }
+        }
+    },
+    "uninstaller": {
+        "file": "uninstall.ps1"
+    }
+}

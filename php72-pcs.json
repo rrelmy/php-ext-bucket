@@ -1,0 +1,32 @@
+{
+    "homepage": "https://pecl.php.net/package/pcs",
+    "version": "1.3.3",
+    "architecture": {
+        "64bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/pcs/1.3.3/php_pcs-1.3.3-7.2-ts-vc15-x64.zip",
+            "hash": "dab7030978d02727fe7be96b6ef173db68330e60c659e3183541518a9181604a"
+        },
+        "32bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/pcs/1.3.3/php_pcs-1.3.3-7.2-ts-vc15-x86.zip",
+            "hash": "918488037c0ba07539a6185e4c6eacb9156dd6ef34affa805ef58a0bd183a676"
+        }
+    },
+    "depends": [
+        "php"
+    ],
+    "post_install": "$phpconfd = \"$persist_dir\\..\\php\\cli\\conf.d\"; if((test-path $phpconfd)) { echo \"Enabling extension $(Convert-Path $phpconfd)\\pcs.ini\"; echo \"extension=$dir\\php_pcs.dll\" | sc \"$phpconfd\\pcs.ini\"; echo \"Remove-Item '$(Convert-Path $phpconfd)\\pcs.ini'\" | sc \"$dir\\uninstall.ps1\" } else { write-host -f yellow \"PHP was not installed through scoop, you have to activate php_pcs.dll manually!\" }",
+    "checkver": "pcs/([\\d.]+)/windows",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/pcs/$version/php_pcs-$version-7.2-ts-vc15-x64.zip"
+            },
+            "32bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/pcs/$version/php_pcs-$version-7.2-ts-vc15-x86.zip"
+            }
+        }
+    },
+    "uninstaller": {
+        "file": "uninstall.ps1"
+    }
+}

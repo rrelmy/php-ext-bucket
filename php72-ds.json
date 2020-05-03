@@ -1,0 +1,32 @@
+{
+    "homepage": "https://pecl.php.net/package/ds",
+    "version": "1.2.9",
+    "architecture": {
+        "64bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/ds/1.2.9/php_ds-1.2.9-7.2-ts-vc15-x64.zip",
+            "hash": "f47db08f51d709c0a423f47fe1b289719ed70d5f36a49241161199a0fbbc65e8"
+        },
+        "32bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/ds/1.2.9/php_ds-1.2.9-7.2-ts-vc15-x86.zip",
+            "hash": "27eeff59e04725b09f0b930dd5f8a9872b76076e04ffdfd98312d7944ee8b989"
+        }
+    },
+    "depends": [
+        "php"
+    ],
+    "post_install": "$phpconfd = \"$persist_dir\\..\\php\\cli\\conf.d\"; if((test-path $phpconfd)) { echo \"Enabling extension $(Convert-Path $phpconfd)\\ds.ini\"; echo \"extension=$dir\\php_ds.dll\" | sc \"$phpconfd\\ds.ini\"; echo \"Remove-Item '$(Convert-Path $phpconfd)\\ds.ini'\" | sc \"$dir\\uninstall.ps1\" } else { write-host -f yellow \"PHP was not installed through scoop, you have to activate php_ds.dll manually!\" }",
+    "checkver": "ds/([\\d.]+)/windows",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/ds/$version/php_ds-$version-7.2-ts-vc15-x64.zip"
+            },
+            "32bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/ds/$version/php_ds-$version-7.2-ts-vc15-x86.zip"
+            }
+        }
+    },
+    "uninstaller": {
+        "file": "uninstall.ps1"
+    }
+}

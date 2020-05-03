@@ -1,0 +1,32 @@
+{
+    "homepage": "https://pecl.php.net/package/hrtime",
+    "version": "0.6.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/hrtime/0.6.0/php_hrtime-0.6.0-7.2-ts-vc15-x64.zip",
+            "hash": "2d72c03c42ff82509c3775a5403e5f1f1bb0bb214579156f51c1ff0445202a50"
+        },
+        "32bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/hrtime/0.6.0/php_hrtime-0.6.0-7.2-ts-vc15-x86.zip",
+            "hash": "3da78b72fb2632b001165cec2e11ced8f28b2e512d11abf8e013ab1906909d7d"
+        }
+    },
+    "depends": [
+        "php"
+    ],
+    "post_install": "$phpconfd = \"$persist_dir\\..\\php\\cli\\conf.d\"; if((test-path $phpconfd)) { echo \"Enabling extension $(Convert-Path $phpconfd)\\hrtime.ini\"; echo \"extension=$dir\\php_hrtime.dll\" | sc \"$phpconfd\\hrtime.ini\"; echo \"Remove-Item '$(Convert-Path $phpconfd)\\hrtime.ini'\" | sc \"$dir\\uninstall.ps1\" } else { write-host -f yellow \"PHP was not installed through scoop, you have to activate php_hrtime.dll manually!\" }",
+    "checkver": "hrtime/([\\d.]+)/windows",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/hrtime/$version/php_hrtime-$version-7.2-ts-vc15-x64.zip"
+            },
+            "32bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/hrtime/$version/php_hrtime-$version-7.2-ts-vc15-x86.zip"
+            }
+        }
+    },
+    "uninstaller": {
+        "file": "uninstall.ps1"
+    }
+}

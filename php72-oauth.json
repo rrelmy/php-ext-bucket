@@ -1,0 +1,32 @@
+{
+    "homepage": "https://pecl.php.net/package/oauth",
+    "version": "2.0.5",
+    "architecture": {
+        "64bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/oauth/2.0.5/php_oauth-2.0.5-7.2-ts-vc15-x64.zip",
+            "hash": "24fec00a2a119cfbeefef39e5a912a2f975791029abeac349c14c4f52058617f"
+        },
+        "32bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/oauth/2.0.5/php_oauth-2.0.5-7.2-ts-vc15-x86.zip",
+            "hash": "a76ab19a45e79ef16010bb04ad04538c19f7c4c62824c9134df3277a41ef4619"
+        }
+    },
+    "depends": [
+        "php"
+    ],
+    "post_install": "$phpconfd = \"$persist_dir\\..\\php\\cli\\conf.d\"; if((test-path $phpconfd)) { echo \"Enabling extension $(Convert-Path $phpconfd)\\oauth.ini\"; echo \"extension=$dir\\php_oauth.dll\" | sc \"$phpconfd\\oauth.ini\"; echo \"Remove-Item '$(Convert-Path $phpconfd)\\oauth.ini'\" | sc \"$dir\\uninstall.ps1\" } else { write-host -f yellow \"PHP was not installed through scoop, you have to activate php_oauth.dll manually!\" }",
+    "checkver": "oauth/([\\d.]+)/windows",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/oauth/$version/php_oauth-$version-7.2-ts-vc15-x64.zip"
+            },
+            "32bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/oauth/$version/php_oauth-$version-7.2-ts-vc15-x86.zip"
+            }
+        }
+    },
+    "uninstaller": {
+        "file": "uninstall.ps1"
+    }
+}

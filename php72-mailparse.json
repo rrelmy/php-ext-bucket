@@ -1,0 +1,32 @@
+{
+    "homepage": "https://pecl.php.net/package/mailparse",
+    "version": "3.1.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/mailparse/3.1.0/php_mailparse-3.1.0-7.2-ts-vc15-x64.zip",
+            "hash": "908de9f4e3c829b042a235a25a228f31fc2e4ba62367f6f956f1a27202a86405"
+        },
+        "32bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/mailparse/3.1.0/php_mailparse-3.1.0-7.2-ts-vc15-x86.zip",
+            "hash": "60aca9dd76123b4bb5cb1560e2fb53c99c0d0b1aaaa228fcb8fb025a1980dfe5"
+        }
+    },
+    "depends": [
+        "php"
+    ],
+    "post_install": "$phpconfd = \"$persist_dir\\..\\php\\cli\\conf.d\"; if((test-path $phpconfd)) { echo \"Enabling extension $(Convert-Path $phpconfd)\\mailparse.ini\"; echo \"extension=$dir\\php_mailparse.dll\" | sc \"$phpconfd\\mailparse.ini\"; echo \"Remove-Item '$(Convert-Path $phpconfd)\\mailparse.ini'\" | sc \"$dir\\uninstall.ps1\" } else { write-host -f yellow \"PHP was not installed through scoop, you have to activate php_mailparse.dll manually!\" }",
+    "checkver": "mailparse/([\\d.]+)/windows",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/mailparse/$version/php_mailparse-$version-7.2-ts-vc15-x64.zip"
+            },
+            "32bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/mailparse/$version/php_mailparse-$version-7.2-ts-vc15-x86.zip"
+            }
+        }
+    },
+    "uninstaller": {
+        "file": "uninstall.ps1"
+    }
+}

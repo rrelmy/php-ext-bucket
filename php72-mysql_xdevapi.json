@@ -1,0 +1,32 @@
+{
+    "homepage": "https://pecl.php.net/package/mysql_xdevapi",
+    "version": "8.0.20",
+    "architecture": {
+        "64bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/mysql_xdevapi/8.0.20/php_mysql_xdevapi-8.0.20-7.2-ts-vc15-x64.zip",
+            "hash": "c52409b2866de0e5665a82d32ae170c3722e0798a6011f497ccc4941f9c53675"
+        },
+        "32bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/mysql_xdevapi/8.0.20/php_mysql_xdevapi-8.0.20-7.2-ts-vc15-x86.zip",
+            "hash": "bba87a028bf3f89d5f85f7adcc4a365aa32697d993767bc3e2c16eb18eef676d"
+        }
+    },
+    "depends": [
+        "php"
+    ],
+    "post_install": "$phpconfd = \"$persist_dir\\..\\php\\cli\\conf.d\"; if((test-path $phpconfd)) { echo \"Enabling extension $(Convert-Path $phpconfd)\\mysql_xdevapi.ini\"; echo \"extension=$dir\\php_mysql_xdevapi.dll\" | sc \"$phpconfd\\mysql_xdevapi.ini\"; echo \"Remove-Item '$(Convert-Path $phpconfd)\\mysql_xdevapi.ini'\" | sc \"$dir\\uninstall.ps1\" } else { write-host -f yellow \"PHP was not installed through scoop, you have to activate php_mysql_xdevapi.dll manually!\" }",
+    "checkver": "mysql_xdevapi/([\\d.]+)/windows",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/mysql_xdevapi/$version/php_mysql_xdevapi-$version-7.2-ts-vc15-x64.zip"
+            },
+            "32bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/mysql_xdevapi/$version/php_mysql_xdevapi-$version-7.2-ts-vc15-x86.zip"
+            }
+        }
+    },
+    "uninstaller": {
+        "file": "uninstall.ps1"
+    }
+}

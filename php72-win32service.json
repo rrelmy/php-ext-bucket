@@ -1,0 +1,32 @@
+{
+    "homepage": "https://pecl.php.net/package/win32service",
+    "version": "0.4.1",
+    "architecture": {
+        "64bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/win32service/0.4.1/php_win32service-0.4.1-7.2-ts-vc15-x64.zip",
+            "hash": "29a2de553d0d79e99dec62efd395c6c0bb9ca009376ed7290d94e8c6ab297e4f"
+        },
+        "32bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/win32service/0.4.1/php_win32service-0.4.1-7.2-ts-vc15-x86.zip",
+            "hash": "1ba9e1f7e8cf29174ada82fd5051bd1b2af885431d67d3c2fed03b39e24a362e"
+        }
+    },
+    "depends": [
+        "php"
+    ],
+    "post_install": "$phpconfd = \"$persist_dir\\..\\php\\cli\\conf.d\"; if((test-path $phpconfd)) { echo \"Enabling extension $(Convert-Path $phpconfd)\\win32service.ini\"; echo \"extension=$dir\\php_win32service.dll\" | sc \"$phpconfd\\win32service.ini\"; echo \"Remove-Item '$(Convert-Path $phpconfd)\\win32service.ini'\" | sc \"$dir\\uninstall.ps1\" } else { write-host -f yellow \"PHP was not installed through scoop, you have to activate php_win32service.dll manually!\" }",
+    "checkver": "win32service/([\\d.]+)/windows",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/win32service/$version/php_win32service-$version-7.2-ts-vc15-x64.zip"
+            },
+            "32bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/win32service/$version/php_win32service-$version-7.2-ts-vc15-x86.zip"
+            }
+        }
+    },
+    "uninstaller": {
+        "file": "uninstall.ps1"
+    }
+}

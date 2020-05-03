@@ -1,0 +1,32 @@
+{
+    "homepage": "https://pecl.php.net/package/stomp",
+    "version": "2.0.2",
+    "architecture": {
+        "64bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/stomp/2.0.2/php_stomp-2.0.2-7.2-ts-vc15-x64.zip",
+            "hash": "50737e01a917d30b51e74d04ace3786fb38df343546c8aa54f7a3dcd60989a6c"
+        },
+        "32bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/stomp/2.0.2/php_stomp-2.0.2-7.2-ts-vc15-x86.zip",
+            "hash": "cec67f69836fae56b443225305ac24862260d4cc4748652d38cb93f9e723f78e"
+        }
+    },
+    "depends": [
+        "php"
+    ],
+    "post_install": "$phpconfd = \"$persist_dir\\..\\php\\cli\\conf.d\"; if((test-path $phpconfd)) { echo \"Enabling extension $(Convert-Path $phpconfd)\\stomp.ini\"; echo \"extension=$dir\\php_stomp.dll\" | sc \"$phpconfd\\stomp.ini\"; echo \"Remove-Item '$(Convert-Path $phpconfd)\\stomp.ini'\" | sc \"$dir\\uninstall.ps1\" } else { write-host -f yellow \"PHP was not installed through scoop, you have to activate php_stomp.dll manually!\" }",
+    "checkver": "stomp/([\\d.]+)/windows",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/stomp/$version/php_stomp-$version-7.2-ts-vc15-x64.zip"
+            },
+            "32bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/stomp/$version/php_stomp-$version-7.2-ts-vc15-x86.zip"
+            }
+        }
+    },
+    "uninstaller": {
+        "file": "uninstall.ps1"
+    }
+}

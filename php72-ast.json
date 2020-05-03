@@ -1,0 +1,32 @@
+{
+    "homepage": "https://pecl.php.net/package/ast",
+    "version": "1.0.6",
+    "architecture": {
+        "64bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/ast/1.0.6/php_ast-1.0.6-7.2-ts-vc15-x64.zip",
+            "hash": "deb0b04456f86b557101a84101637fe640eb2f6de62d248cf56b713a4ac076dd"
+        },
+        "32bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/ast/1.0.6/php_ast-1.0.6-7.2-ts-vc15-x86.zip",
+            "hash": "bca9a51df2b0ac5e060cee22a3629e4eb4329ab3c63c5255eb6e4d6804fe3c54"
+        }
+    },
+    "depends": [
+        "php"
+    ],
+    "post_install": "$phpconfd = \"$persist_dir\\..\\php\\cli\\conf.d\"; if((test-path $phpconfd)) { echo \"Enabling extension $(Convert-Path $phpconfd)\\ast.ini\"; echo \"extension=$dir\\php_ast.dll\" | sc \"$phpconfd\\ast.ini\"; echo \"Remove-Item '$(Convert-Path $phpconfd)\\ast.ini'\" | sc \"$dir\\uninstall.ps1\" } else { write-host -f yellow \"PHP was not installed through scoop, you have to activate php_ast.dll manually!\" }",
+    "checkver": "ast/([\\d.]+)/windows",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/ast/$version/php_ast-$version-7.2-ts-vc15-x64.zip"
+            },
+            "32bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/ast/$version/php_ast-$version-7.2-ts-vc15-x86.zip"
+            }
+        }
+    },
+    "uninstaller": {
+        "file": "uninstall.ps1"
+    }
+}

@@ -1,0 +1,32 @@
+{
+    "homepage": "https://pecl.php.net/package/yac",
+    "version": "2.2.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/yac/2.2.0/php_yac-2.2.0-7.2-ts-vc15-x64.zip",
+            "hash": "6bd41686bd2f293f48d9b58cd8351b9e45c841585931d1a505c7ad1bd8e30ed6"
+        },
+        "32bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/yac/2.2.0/php_yac-2.2.0-7.2-ts-vc15-x86.zip",
+            "hash": "f5581b62a43bdb01196094ecdabc4fc8a076451348fe3623c954794d6da197f6"
+        }
+    },
+    "depends": [
+        "php"
+    ],
+    "post_install": "$phpconfd = \"$persist_dir\\..\\php\\cli\\conf.d\"; if((test-path $phpconfd)) { echo \"Enabling extension $(Convert-Path $phpconfd)\\yac.ini\"; echo \"extension=$dir\\php_yac.dll\" | sc \"$phpconfd\\yac.ini\"; echo \"Remove-Item '$(Convert-Path $phpconfd)\\yac.ini'\" | sc \"$dir\\uninstall.ps1\" } else { write-host -f yellow \"PHP was not installed through scoop, you have to activate php_yac.dll manually!\" }",
+    "checkver": "yac/([\\d.]+)/windows",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/yac/$version/php_yac-$version-7.2-ts-vc15-x64.zip"
+            },
+            "32bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/yac/$version/php_yac-$version-7.2-ts-vc15-x86.zip"
+            }
+        }
+    },
+    "uninstaller": {
+        "file": "uninstall.ps1"
+    }
+}

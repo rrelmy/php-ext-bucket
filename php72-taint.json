@@ -1,0 +1,32 @@
+{
+    "homepage": "https://pecl.php.net/package/taint",
+    "version": "2.1.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/taint/2.1.0/php_taint-2.1.0-7.2-ts-vc15-x64.zip",
+            "hash": "978fb3677be0d708a2dbe7282571f63f572acee9258cf552024a636f059468c5"
+        },
+        "32bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/taint/2.1.0/php_taint-2.1.0-7.2-ts-vc15-x86.zip",
+            "hash": "31b494361752e47a1edf0823045caf220c11aedd7fa7d35cc34c4bc52dd324ad"
+        }
+    },
+    "depends": [
+        "php"
+    ],
+    "post_install": "$phpconfd = \"$persist_dir\\..\\php\\cli\\conf.d\"; if((test-path $phpconfd)) { echo \"Enabling extension $(Convert-Path $phpconfd)\\taint.ini\"; echo \"extension=$dir\\php_taint.dll\" | sc \"$phpconfd\\taint.ini\"; echo \"Remove-Item '$(Convert-Path $phpconfd)\\taint.ini'\" | sc \"$dir\\uninstall.ps1\" } else { write-host -f yellow \"PHP was not installed through scoop, you have to activate php_taint.dll manually!\" }",
+    "checkver": "taint/([\\d.]+)/windows",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/taint/$version/php_taint-$version-7.2-ts-vc15-x64.zip"
+            },
+            "32bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/taint/$version/php_taint-$version-7.2-ts-vc15-x86.zip"
+            }
+        }
+    },
+    "uninstaller": {
+        "file": "uninstall.ps1"
+    }
+}

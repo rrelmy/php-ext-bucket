@@ -1,0 +1,32 @@
+{
+    "homepage": "https://pecl.php.net/package/stackdriver_debugger",
+    "version": "0.2.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/stackdriver_debugger/0.2.0/php_stackdriver_debugger-0.2.0-7.2-ts-vc15-x64.zip",
+            "hash": "1d97ec226d52029153cfc764a5b1edf8d25d6431a5d6c6383fe792be311923d5"
+        },
+        "32bit": {
+            "url": "https://windows.php.net/downloads/pecl/releases/stackdriver_debugger/0.2.0/php_stackdriver_debugger-0.2.0-7.2-ts-vc15-x86.zip",
+            "hash": "757198f103f2f7d8d289631e4dfbf46dd7c9108f096d7550197a6c581551c320"
+        }
+    },
+    "depends": [
+        "php"
+    ],
+    "post_install": "$phpconfd = \"$persist_dir\\..\\php\\cli\\conf.d\"; if((test-path $phpconfd)) { echo \"Enabling extension $(Convert-Path $phpconfd)\\stackdriver_debugger.ini\"; echo \"extension=$dir\\php_stackdriver_debugger.dll\" | sc \"$phpconfd\\stackdriver_debugger.ini\"; echo \"Remove-Item '$(Convert-Path $phpconfd)\\stackdriver_debugger.ini'\" | sc \"$dir\\uninstall.ps1\" } else { write-host -f yellow \"PHP was not installed through scoop, you have to activate php_stackdriver_debugger.dll manually!\" }",
+    "checkver": "stackdriver_debugger/([\\d.]+)/windows",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/stackdriver_debugger/$version/php_stackdriver_debugger-$version-7.2-ts-vc15-x64.zip"
+            },
+            "32bit": {
+                "url": "https://windows.php.net/downloads/pecl/releases/stackdriver_debugger/$version/php_stackdriver_debugger-$version-7.2-ts-vc15-x86.zip"
+            }
+        }
+    },
+    "uninstaller": {
+        "file": "uninstall.ps1"
+    }
+}
